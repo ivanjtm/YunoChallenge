@@ -5,7 +5,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/velamarket/refund-router/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
 // IsReversalEligible checks if a transaction can be reversed (voided).

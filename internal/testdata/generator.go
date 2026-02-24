@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/velamarket/refund-router/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
 func weightedPick[T any](rng *rand.Rand, items []T, weights []float64) T {

@@ -3,7 +3,7 @@ package cost
 import (
 	"math"
 
-	"github.com/velamarket/refund-router/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
 // Calculate computes the refund fee for a given amount and fee structure.

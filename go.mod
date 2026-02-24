@@ -1,3 +1,3 @@
-module github.com/velamarket/refund-router
+module github.com/ivanjtm/YunoChallenge
 
 go 1.25.3

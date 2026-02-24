@@ -7,11 +7,11 @@ import (
 	"os"
 	"time"
 
-	internalconfig "github.com/velamarket/refund-router/internal/config"
-	"github.com/velamarket/refund-router/internal/handler"
-	"github.com/velamarket/refund-router/internal/quota"
-	"github.com/velamarket/refund-router/internal/router"
-	"github.com/velamarket/refund-router/internal/testdata"
+	internalconfig "github.com/ivanjtm/YunoChallenge/internal/config"
+	"github.com/ivanjtm/YunoChallenge/internal/handler"
+	"github.com/ivanjtm/YunoChallenge/internal/quota"
+	"github.com/ivanjtm/YunoChallenge/internal/router"
+	"github.com/ivanjtm/YunoChallenge/internal/testdata"
 )
 
 func main() {

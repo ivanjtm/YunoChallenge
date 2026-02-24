@@ -1,6 +1,6 @@
 package rules
 
-import "github.com/velamarket/refund-router/internal/model"
+import "github.com/ivanjtm/YunoChallenge/internal/model"
 
 // RuleIndex provides O(1) lookup for compatibility rules by (method, country) key.
 type RuleIndex struct {

@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/velamarket/refund-router/internal/historical"
-	"github.com/velamarket/refund-router/internal/model"
-	"github.com/velamarket/refund-router/internal/router"
+	"github.com/ivanjtm/YunoChallenge/internal/historical"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/router"
 )
 
 type HistoricalHandler struct {

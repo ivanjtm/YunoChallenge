@@ -5,9 +5,9 @@ import (
 	"sort"
 	"time"
 
-	"github.com/velamarket/refund-router/internal/cost"
-	"github.com/velamarket/refund-router/internal/model"
-	"github.com/velamarket/refund-router/internal/rules"
+	"github.com/ivanjtm/YunoChallenge/internal/cost"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/rules"
 )
 
 // Router is the refund routing engine.

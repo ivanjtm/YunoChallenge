@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/velamarket/refund-router/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
 // EligiblePath represents a refund method that passed all eligibility checks.

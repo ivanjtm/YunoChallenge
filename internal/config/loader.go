@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/velamarket/refund-router/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
 // AppConfig holds all loaded configuration data for the refund routing service.

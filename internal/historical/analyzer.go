@@ -5,8 +5,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/velamarket/refund-router/internal/model"
-	"github.com/velamarket/refund-router/internal/router"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/router"
 )
 
 // Analyze performs historical cost analysis over a set of transactions,

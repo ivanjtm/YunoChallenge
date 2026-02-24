@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/velamarket/refund-router/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
 // Tracker manages processor refund quotas and availability simulation.

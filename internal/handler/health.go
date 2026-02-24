@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	internalconfig "github.com/velamarket/refund-router/internal/config"
+	internalconfig "github.com/ivanjtm/YunoChallenge/internal/config"
 )
 
 type HealthHandler struct {
