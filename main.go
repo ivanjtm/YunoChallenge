@@ -9,6 +9,7 @@ import (
 
 	internalconfig "github.com/velamarket/refund-router/internal/config"
 	"github.com/velamarket/refund-router/internal/handler"
+	"github.com/velamarket/refund-router/internal/quota"
 	"github.com/velamarket/refund-router/internal/router"
 	"github.com/velamarket/refund-router/internal/testdata"
 )
@@ -41,16 +42,24 @@ func main() {
 	// Create router engine
 	routerEngine := router.NewRouter(cfg.Processors, cfg.Rules)
 
+	// Create quota tracker
+	quotaTracker := quota.NewTracker(cfg.Processors)
+
 	// Create handlers
 	healthH := &handler.HealthHandler{Config: cfg}
 	refundH := &handler.RefundHandler{Router: routerEngine}
 	batchH := &handler.BatchHandler{Router: routerEngine}
+	quotaH := &handler.QuotaHandler{Tracker: quotaTracker}
+	historicalH := &handler.HistoricalHandler{Router: routerEngine}
 
 	// Register routes
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/v1/health", healthH.Handle)
 	mux.HandleFunc("POST /api/v1/refund", refundH.Handle)
 	mux.HandleFunc("POST /api/v1/refund/batch", batchH.Handle)
+	mux.HandleFunc("POST /api/v1/simulation/quota", quotaH.Set)
+	mux.HandleFunc("DELETE /api/v1/simulation/quota", quotaH.Reset)
+	mux.HandleFunc("POST /api/v1/analysis/historical", historicalH.Handle)
 
 	// Apply middleware
 	srv := handler.Chain(mux,
@@ -66,6 +75,9 @@ func main() {
 	log.Printf("  GET  /api/v1/health")
 	log.Printf("  POST /api/v1/refund")
 	log.Printf("  POST /api/v1/refund/batch")
+	log.Printf("  POST /api/v1/simulation/quota")
+	log.Printf("  DELETE /api/v1/simulation/quota")
+	log.Printf("  POST /api/v1/analysis/historical")
 
 	if err := http.ListenAndServe(addr, srv); err != nil {
 		log.Fatalf("Server failed: %v", err)
