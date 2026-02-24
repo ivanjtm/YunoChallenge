@@ -6,7 +6,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 250,
-    "timestamp": "2026-02-24T15:16:41.994643-06:00",
+    "timestamp": "2026-02-24T15:19:15.477847-06:00",
     "settled": false,
     "customer_id": ""
   },
@@ -17,7 +17,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 1500,
-    "timestamp": "2026-02-24T15:01:41.994643-06:00",
+    "timestamp": "2026-02-24T15:04:15.477847-06:00",
     "settled": false,
     "customer_id": ""
   },
@@ -28,7 +28,7 @@
     "payment_method": "PSE",
     "processor_id": "colpay",
     "amount": 200000,
-    "timestamp": "2026-02-24T15:26:41.994643-06:00",
+    "timestamp": "2026-02-24T15:29:15.477847-06:00",
     "settled": false,
     "customer_id": ""
   },
@@ -39,7 +39,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 800,
-    "timestamp": "2026-02-24T03:46:41.994643-06:00",
+    "timestamp": "2026-02-24T03:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -50,7 +50,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 450,
-    "timestamp": "2025-11-30T15:46:41.994643-06:00",
+    "timestamp": "2025-11-30T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -61,7 +61,7 @@
     "payment_method": "PIX",
     "processor_id": "globalpay",
     "amount": 320,
-    "timestamp": "2025-11-28T15:46:41.994643-06:00",
+    "timestamp": "2025-11-28T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -72,7 +72,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 180,
-    "timestamp": "2025-11-27T15:46:41.994643-06:00",
+    "timestamp": "2025-11-27T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -83,7 +83,7 @@
     "payment_method": "PSE",
     "processor_id": "colpay",
     "amount": 350000,
-    "timestamp": "2025-12-29T15:46:41.994643-06:00",
+    "timestamp": "2025-12-29T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -94,7 +94,7 @@
     "payment_method": "PSE",
     "processor_id": "globalpay",
     "amount": 180000,
-    "timestamp": "2025-12-27T15:46:41.994643-06:00",
+    "timestamp": "2025-12-27T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -105,7 +105,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 2500,
-    "timestamp": "2026-01-10T15:46:41.994643-06:00",
+    "timestamp": "2026-01-10T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -116,7 +116,7 @@
     "payment_method": "OXXO",
     "processor_id": "globalpay",
     "amount": 800,
-    "timestamp": "2026-01-25T15:46:41.994643-06:00",
+    "timestamp": "2026-01-25T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -127,7 +127,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 3200,
-    "timestamp": "2025-11-16T15:46:41.994643-06:00",
+    "timestamp": "2025-11-16T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -138,7 +138,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 600,
-    "timestamp": "2025-12-26T15:46:41.994643-06:00",
+    "timestamp": "2025-12-26T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -149,7 +149,7 @@
     "payment_method": "BOLETO",
     "processor_id": "globalpay",
     "amount": 150,
-    "timestamp": "2026-02-04T15:46:41.994643-06:00",
+    "timestamp": "2026-02-04T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -160,7 +160,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 450000,
-    "timestamp": "2026-01-15T15:46:41.994643-06:00",
+    "timestamp": "2026-01-15T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -171,7 +171,7 @@
     "payment_method": "EFECTY",
     "processor_id": "globalpay",
     "amount": 120000,
-    "timestamp": "2026-02-09T15:46:41.994643-06:00",
+    "timestamp": "2026-02-09T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -182,7 +182,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "quickrefund",
     "amount": 4800,
-    "timestamp": "2026-02-14T15:46:41.994643-06:00",
+    "timestamp": "2026-02-14T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -193,7 +193,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 14000,
-    "timestamp": "2026-02-19T15:46:41.994643-06:00",
+    "timestamp": "2026-02-19T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -204,7 +204,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 4800000,
-    "timestamp": "2026-02-16T15:46:41.994643-06:00",
+    "timestamp": "2026-02-16T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -215,7 +215,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 15,
-    "timestamp": "2026-02-21T15:46:41.994643-06:00",
+    "timestamp": "2026-02-21T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -226,7 +226,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 50,
-    "timestamp": "2026-02-22T15:46:41.994643-06:00",
+    "timestamp": "2026-02-22T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -237,7 +237,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 500,
-    "timestamp": "2025-09-01T15:46:41.994643-06:00",
+    "timestamp": "2025-09-01T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -248,7 +248,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 2000,
-    "timestamp": "2025-08-29T15:46:41.994643-06:00",
+    "timestamp": "2025-08-29T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": ""
   },
@@ -259,7 +259,7 @@
     "payment_method": "PIX",
     "processor_id": "globalpay",
     "amount": 520.43,
-    "timestamp": "2026-01-06T08:46:41.994643-06:00",
+    "timestamp": "2026-01-06T08:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_40357"
   },
@@ -270,7 +270,7 @@
     "payment_method": "PIX",
     "processor_id": "globalpay",
     "amount": 40.13,
-    "timestamp": "2025-12-24T16:46:41.994643-06:00",
+    "timestamp": "2025-12-24T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06828"
   },
@@ -281,7 +281,7 @@
     "payment_method": "OXXO",
     "processor_id": "quickrefund",
     "amount": 123.65,
-    "timestamp": "2026-01-01T16:46:41.994643-06:00",
+    "timestamp": "2026-01-01T16:49:15.477847-06:00",
     "settled": false,
     "customer_id": "cust_13082"
   },
@@ -292,7 +292,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 70.22,
-    "timestamp": "2025-12-27T10:46:41.994643-06:00",
+    "timestamp": "2025-12-27T10:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_40919"
   },
@@ -303,7 +303,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 281.71,
-    "timestamp": "2026-01-10T20:46:41.994643-06:00",
+    "timestamp": "2026-01-10T20:49:15.477847-06:00",
     "settled": false,
     "customer_id": "cust_39629"
   },
@@ -314,7 +314,7 @@
     "payment_method": "EFECTY",
     "processor_id": "valueproc",
     "amount": 231069,
-    "timestamp": "2025-10-13T04:46:41.994643-06:00",
+    "timestamp": "2025-10-13T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_09387"
   },
@@ -325,7 +325,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 74.4,
-    "timestamp": "2026-02-09T21:46:41.994643-06:00",
+    "timestamp": "2026-02-09T21:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_12429"
   },
@@ -336,7 +336,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 378.3,
-    "timestamp": "2026-01-21T00:46:41.994643-06:00",
+    "timestamp": "2026-01-21T00:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_25276"
   },
@@ -347,7 +347,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 1098.31,
-    "timestamp": "2025-10-29T23:46:41.994643-06:00",
+    "timestamp": "2025-10-29T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_21411"
   },
@@ -358,7 +358,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 1478.35,
-    "timestamp": "2026-01-20T07:46:41.994643-06:00",
+    "timestamp": "2026-01-20T07:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_33775"
   },
@@ -369,7 +369,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 89.83,
-    "timestamp": "2025-09-30T23:46:41.994643-06:00",
+    "timestamp": "2025-09-30T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_24101"
   },
@@ -380,7 +380,7 @@
     "payment_method": "PIX",
     "processor_id": "valueproc",
     "amount": 86.56,
-    "timestamp": "2025-11-13T04:46:41.994643-06:00",
+    "timestamp": "2025-11-13T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_23559"
   },
@@ -391,7 +391,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "quickrefund",
     "amount": 230.3,
-    "timestamp": "2026-01-07T04:46:41.994643-06:00",
+    "timestamp": "2026-01-07T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_46782"
   },
@@ -402,7 +402,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 32465,
-    "timestamp": "2026-01-02T16:46:41.994643-06:00",
+    "timestamp": "2026-01-02T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_19375"
   },
@@ -413,7 +413,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 139.48,
-    "timestamp": "2025-11-14T15:46:41.994643-06:00",
+    "timestamp": "2025-11-14T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_46598"
   },
@@ -424,7 +424,7 @@
     "payment_method": "PSE",
     "processor_id": "colpay",
     "amount": 97067,
-    "timestamp": "2025-10-22T08:46:41.994643-06:00",
+    "timestamp": "2025-10-22T08:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_15031"
   },
@@ -435,7 +435,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 45.07,
-    "timestamp": "2025-10-30T06:46:41.994643-06:00",
+    "timestamp": "2025-10-30T06:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_02361"
   },
@@ -446,7 +446,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 96417,
-    "timestamp": "2025-10-30T15:46:41.994643-06:00",
+    "timestamp": "2025-10-30T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_07551"
   },
@@ -457,7 +457,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 97.34,
-    "timestamp": "2025-11-07T13:46:41.994643-06:00",
+    "timestamp": "2025-11-07T13:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_41814"
   },
@@ -468,7 +468,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 263.8,
-    "timestamp": "2026-01-26T09:46:41.994643-06:00",
+    "timestamp": "2026-01-26T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_41839"
   },
@@ -479,7 +479,7 @@
     "payment_method": "OXXO",
     "processor_id": "globalpay",
     "amount": 1467.15,
-    "timestamp": "2025-10-22T04:46:41.994643-06:00",
+    "timestamp": "2025-10-22T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_13994"
   },
@@ -490,7 +490,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 119454,
-    "timestamp": "2025-11-10T23:46:41.994643-06:00",
+    "timestamp": "2025-11-10T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_36567"
   },
@@ -501,7 +501,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 508.44,
-    "timestamp": "2025-09-06T16:46:41.994643-06:00",
+    "timestamp": "2025-09-06T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06008"
   },
@@ -512,7 +512,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 364.15,
-    "timestamp": "2025-11-22T15:46:41.994643-06:00",
+    "timestamp": "2025-11-22T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_08549"
   },
@@ -523,7 +523,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 337.16,
-    "timestamp": "2026-02-22T10:46:41.994643-06:00",
+    "timestamp": "2026-02-22T10:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_39937"
   },
@@ -534,7 +534,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 160.09,
-    "timestamp": "2026-01-06T06:46:41.994643-06:00",
+    "timestamp": "2026-01-06T06:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_04653"
   },
@@ -545,7 +545,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 111.9,
-    "timestamp": "2025-12-08T18:46:41.994643-06:00",
+    "timestamp": "2025-12-08T18:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_18026"
   },
@@ -556,7 +556,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 240.11,
-    "timestamp": "2025-12-17T19:46:41.994643-06:00",
+    "timestamp": "2025-12-17T19:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_23827"
   },
@@ -567,7 +567,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 321519,
-    "timestamp": "2025-11-15T16:46:41.994643-06:00",
+    "timestamp": "2025-11-15T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_49606"
   },
@@ -578,7 +578,7 @@
     "payment_method": "SPEI",
     "processor_id": "valueproc",
     "amount": 87.16,
-    "timestamp": "2026-02-12T23:46:41.994643-06:00",
+    "timestamp": "2026-02-12T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_38630"
   },
@@ -589,7 +589,7 @@
     "payment_method": "OXXO",
     "processor_id": "valueproc",
     "amount": 113.49,
-    "timestamp": "2025-09-10T22:46:41.994643-06:00",
+    "timestamp": "2025-09-10T22:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_20246"
   },
@@ -600,7 +600,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 900.49,
-    "timestamp": "2025-12-16T11:46:41.994643-06:00",
+    "timestamp": "2025-12-16T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_47358"
   },
@@ -611,7 +611,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 302.79,
-    "timestamp": "2025-12-27T16:46:41.994643-06:00",
+    "timestamp": "2025-12-27T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_28673"
   },
@@ -622,7 +622,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 193795,
-    "timestamp": "2025-11-07T07:46:41.994643-06:00",
+    "timestamp": "2025-11-07T07:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_08743"
   },
@@ -633,7 +633,7 @@
     "payment_method": "PIX",
     "processor_id": "globalpay",
     "amount": 591.23,
-    "timestamp": "2025-09-22T01:46:41.994643-06:00",
+    "timestamp": "2025-09-22T01:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_27589"
   },
@@ -644,7 +644,7 @@
     "payment_method": "EFECTY",
     "processor_id": "valueproc",
     "amount": 89011,
-    "timestamp": "2025-11-15T11:46:41.994643-06:00",
+    "timestamp": "2025-11-15T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_45312"
   },
@@ -655,7 +655,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "valueproc",
     "amount": 227155,
-    "timestamp": "2026-01-08T10:46:41.994643-06:00",
+    "timestamp": "2026-01-08T10:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_14390"
   },
@@ -666,7 +666,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 534.97,
-    "timestamp": "2025-12-02T09:46:41.994643-06:00",
+    "timestamp": "2025-12-02T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_37584"
   },
@@ -677,7 +677,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 80.7,
-    "timestamp": "2025-09-24T13:46:41.994643-06:00",
+    "timestamp": "2025-09-24T13:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_28908"
   },
@@ -688,7 +688,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 806664,
-    "timestamp": "2025-08-29T15:46:41.994643-06:00",
+    "timestamp": "2025-08-29T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_10651"
   },
@@ -699,7 +699,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 134.3,
-    "timestamp": "2025-10-29T01:46:41.994643-06:00",
+    "timestamp": "2025-10-29T01:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_24262"
   },
@@ -710,7 +710,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 1794.24,
-    "timestamp": "2025-12-21T16:46:41.994643-06:00",
+    "timestamp": "2025-12-21T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_33716"
   },
@@ -721,7 +721,7 @@
     "payment_method": "PIX",
     "processor_id": "globalpay",
     "amount": 261.11,
-    "timestamp": "2025-09-30T19:46:41.994643-06:00",
+    "timestamp": "2025-09-30T19:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_19382"
   },
@@ -732,7 +732,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 1010.19,
-    "timestamp": "2025-11-10T23:46:41.994643-06:00",
+    "timestamp": "2025-11-10T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_02240"
   },
@@ -743,7 +743,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 111.97,
-    "timestamp": "2025-10-09T11:46:41.994643-06:00",
+    "timestamp": "2025-10-09T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_34859"
   },
@@ -754,7 +754,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 204.07,
-    "timestamp": "2025-11-20T11:46:41.994643-06:00",
+    "timestamp": "2025-11-20T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_07915"
   },
@@ -765,7 +765,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 177.29,
-    "timestamp": "2025-12-26T16:46:41.994643-06:00",
+    "timestamp": "2025-12-26T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_10996"
   },
@@ -776,7 +776,7 @@
     "payment_method": "PIX",
     "processor_id": "valueproc",
     "amount": 46.78,
-    "timestamp": "2026-01-05T20:46:41.994643-06:00",
+    "timestamp": "2026-01-05T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_31003"
   },
@@ -787,7 +787,7 @@
     "payment_method": "SPEI",
     "processor_id": "quickrefund",
     "amount": 447.95,
-    "timestamp": "2025-11-09T16:46:41.994643-06:00",
+    "timestamp": "2025-11-09T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06800"
   },
@@ -798,7 +798,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 267.8,
-    "timestamp": "2026-01-09T03:46:41.994643-06:00",
+    "timestamp": "2026-01-09T03:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_01453"
   },
@@ -809,7 +809,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 1274.03,
-    "timestamp": "2025-12-31T11:46:41.994643-06:00",
+    "timestamp": "2025-12-31T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_17452"
   },
@@ -820,7 +820,7 @@
     "payment_method": "PSE",
     "processor_id": "colpay",
     "amount": 209274,
-    "timestamp": "2025-12-09T23:46:41.994643-06:00",
+    "timestamp": "2025-12-09T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_23014"
   },
@@ -831,7 +831,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 2077.52,
-    "timestamp": "2025-10-02T10:46:41.994643-06:00",
+    "timestamp": "2025-10-02T10:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_00351"
   },
@@ -842,7 +842,7 @@
     "payment_method": "BOLETO",
     "processor_id": "globalpay",
     "amount": 133.22,
-    "timestamp": "2025-12-10T09:46:41.994643-06:00",
+    "timestamp": "2025-12-10T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_02648"
   },
@@ -853,7 +853,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 110.3,
-    "timestamp": "2026-01-10T14:46:41.994643-06:00",
+    "timestamp": "2026-01-10T14:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_32501"
   },
@@ -864,7 +864,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 283.91,
-    "timestamp": "2026-01-26T08:46:41.994643-06:00",
+    "timestamp": "2026-01-26T08:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_12780"
   },
@@ -875,7 +875,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 99345,
-    "timestamp": "2025-12-22T10:46:41.994643-06:00",
+    "timestamp": "2025-12-22T10:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_23334"
   },
@@ -886,7 +886,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 331.09,
-    "timestamp": "2026-01-27T15:46:41.994643-06:00",
+    "timestamp": "2026-01-27T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_10049"
   },
@@ -897,7 +897,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 141.89,
-    "timestamp": "2025-11-06T08:46:41.994643-06:00",
+    "timestamp": "2025-11-06T08:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_30794"
   },
@@ -908,7 +908,7 @@
     "payment_method": "OXXO",
     "processor_id": "valueproc",
     "amount": 629.91,
-    "timestamp": "2025-11-25T07:46:41.994643-06:00",
+    "timestamp": "2025-11-25T07:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_04356"
   },
@@ -919,7 +919,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 168.15,
-    "timestamp": "2026-02-14T04:46:41.994643-06:00",
+    "timestamp": "2026-02-14T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_22980"
   },
@@ -930,7 +930,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 231.82,
-    "timestamp": "2025-09-22T02:46:41.994643-06:00",
+    "timestamp": "2025-09-22T02:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_08009"
   },
@@ -941,7 +941,7 @@
     "payment_method": "SPEI",
     "processor_id": "globalpay",
     "amount": 1225.48,
-    "timestamp": "2025-12-19T10:46:41.994643-06:00",
+    "timestamp": "2025-12-19T10:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_39540"
   },
@@ -952,7 +952,7 @@
     "payment_method": "PIX",
     "processor_id": "valueproc",
     "amount": 138.15,
-    "timestamp": "2026-02-02T23:46:41.994643-06:00",
+    "timestamp": "2026-02-02T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_11884"
   },
@@ -963,7 +963,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 210431,
-    "timestamp": "2025-10-21T22:46:41.994643-06:00",
+    "timestamp": "2025-10-21T22:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_38554"
   },
@@ -974,7 +974,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 424.59,
-    "timestamp": "2025-11-19T23:46:41.994643-06:00",
+    "timestamp": "2025-11-19T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06050"
   },
@@ -985,7 +985,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 79.44,
-    "timestamp": "2026-01-22T23:46:41.994643-06:00",
+    "timestamp": "2026-01-22T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_04359"
   },
@@ -996,7 +996,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 1092.1,
-    "timestamp": "2026-01-31T03:46:41.994643-06:00",
+    "timestamp": "2026-01-31T03:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_31838"
   },
@@ -1007,7 +1007,7 @@
     "payment_method": "OXXO",
     "processor_id": "globalpay",
     "amount": 2359.34,
-    "timestamp": "2025-11-13T11:46:41.994643-06:00",
+    "timestamp": "2025-11-13T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_40129"
   },
@@ -1018,7 +1018,7 @@
     "payment_method": "OXXO",
     "processor_id": "quickrefund",
     "amount": 377.69,
-    "timestamp": "2025-12-24T05:46:41.994643-06:00",
+    "timestamp": "2025-12-24T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_24657"
   },
@@ -1029,7 +1029,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 370.09,
-    "timestamp": "2025-11-14T19:46:41.994643-06:00",
+    "timestamp": "2025-11-14T19:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06187"
   },
@@ -1040,7 +1040,7 @@
     "payment_method": "OXXO",
     "processor_id": "globalpay",
     "amount": 2575.22,
-    "timestamp": "2025-10-20T04:46:41.994643-06:00",
+    "timestamp": "2025-10-20T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_26433"
   },
@@ -1051,7 +1051,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 2346.48,
-    "timestamp": "2026-02-16T14:46:41.994643-06:00",
+    "timestamp": "2026-02-16T14:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_25776"
   },
@@ -1062,7 +1062,7 @@
     "payment_method": "SPEI",
     "processor_id": "globalpay",
     "amount": 626.63,
-    "timestamp": "2026-02-22T16:46:41.994643-06:00",
+    "timestamp": "2026-02-22T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_01285"
   },
@@ -1073,7 +1073,7 @@
     "payment_method": "PSE",
     "processor_id": "valueproc",
     "amount": 188883,
-    "timestamp": "2025-10-04T21:46:41.994643-06:00",
+    "timestamp": "2025-10-04T21:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_27141"
   },
@@ -1084,7 +1084,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 167.8,
-    "timestamp": "2025-12-10T20:46:41.994643-06:00",
+    "timestamp": "2025-12-10T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_16162"
   },
@@ -1095,7 +1095,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 119430,
-    "timestamp": "2025-09-13T09:46:41.994643-06:00",
+    "timestamp": "2025-09-13T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_26245"
   },
@@ -1106,7 +1106,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 731.64,
-    "timestamp": "2026-02-09T19:46:41.994643-06:00",
+    "timestamp": "2026-02-09T19:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_12367"
   },
@@ -1117,7 +1117,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 623.54,
-    "timestamp": "2025-10-30T09:46:41.994643-06:00",
+    "timestamp": "2025-10-30T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_30008"
   },
@@ -1128,7 +1128,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "valueproc",
     "amount": 391366,
-    "timestamp": "2026-02-03T21:46:41.994643-06:00",
+    "timestamp": "2026-02-03T21:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06766"
   },
@@ -1139,7 +1139,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 218634,
-    "timestamp": "2025-10-19T04:46:41.994643-06:00",
+    "timestamp": "2025-10-19T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_08034"
   },
@@ -1150,7 +1150,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 51951,
-    "timestamp": "2025-09-08T04:46:41.994643-06:00",
+    "timestamp": "2025-09-08T04:49:15.477847-06:00",
     "settled": false,
     "customer_id": "cust_30424"
   },
@@ -1161,7 +1161,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 62.14,
-    "timestamp": "2025-09-14T13:46:41.994643-06:00",
+    "timestamp": "2025-09-14T13:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_32929"
   },
@@ -1172,7 +1172,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "valueproc",
     "amount": 330.54,
-    "timestamp": "2026-02-17T22:46:41.994643-06:00",
+    "timestamp": "2026-02-17T22:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_14711"
   },
@@ -1183,7 +1183,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 459.14,
-    "timestamp": "2025-10-26T02:46:41.994643-06:00",
+    "timestamp": "2025-10-26T02:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_01077"
   },
@@ -1194,7 +1194,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 379.32,
-    "timestamp": "2025-11-09T23:46:41.994643-06:00",
+    "timestamp": "2025-11-09T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_31490"
   },
@@ -1205,7 +1205,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 812.09,
-    "timestamp": "2026-01-01T15:46:41.994643-06:00",
+    "timestamp": "2026-01-01T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_15991"
   },
@@ -1216,7 +1216,7 @@
     "payment_method": "BOLETO",
     "processor_id": "quickrefund",
     "amount": 1001.97,
-    "timestamp": "2026-02-22T18:46:41.994643-06:00",
+    "timestamp": "2026-02-22T18:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_38928"
   },
@@ -1227,7 +1227,7 @@
     "payment_method": "BOLETO",
     "processor_id": "globalpay",
     "amount": 172.58,
-    "timestamp": "2026-02-16T22:46:41.994643-06:00",
+    "timestamp": "2026-02-16T22:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_16106"
   },
@@ -1238,7 +1238,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 1003.54,
-    "timestamp": "2025-12-03T00:46:41.994643-06:00",
+    "timestamp": "2025-12-03T00:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_12897"
   },
@@ -1249,7 +1249,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 184.12,
-    "timestamp": "2025-10-02T16:46:41.994643-06:00",
+    "timestamp": "2025-10-02T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_01694"
   },
@@ -1260,7 +1260,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 662.19,
-    "timestamp": "2025-11-20T05:46:41.994643-06:00",
+    "timestamp": "2025-11-20T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_00678"
   },
@@ -1271,7 +1271,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 65.69,
-    "timestamp": "2025-11-02T13:46:41.994643-06:00",
+    "timestamp": "2025-11-02T13:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_29809"
   },
@@ -1282,7 +1282,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 899659,
-    "timestamp": "2025-10-24T16:46:41.994643-06:00",
+    "timestamp": "2025-10-24T16:49:15.477847-06:00",
     "settled": false,
     "customer_id": "cust_36832"
   },
@@ -1293,7 +1293,7 @@
     "payment_method": "SPEI",
     "processor_id": "valueproc",
     "amount": 1325.18,
-    "timestamp": "2025-11-10T19:46:41.994643-06:00",
+    "timestamp": "2025-11-10T19:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_18182"
   },
@@ -1304,7 +1304,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 435690,
-    "timestamp": "2025-09-11T06:46:41.994643-06:00",
+    "timestamp": "2025-09-11T06:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06350"
   },
@@ -1315,7 +1315,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 1319.58,
-    "timestamp": "2025-12-26T15:46:41.994643-06:00",
+    "timestamp": "2025-12-26T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_10036"
   },
@@ -1326,7 +1326,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 154.24,
-    "timestamp": "2026-01-31T02:46:41.994643-06:00",
+    "timestamp": "2026-01-31T02:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_37098"
   },
@@ -1337,7 +1337,7 @@
     "payment_method": "OXXO",
     "processor_id": "valueproc",
     "amount": 1098.11,
-    "timestamp": "2026-01-01T08:46:41.994643-06:00",
+    "timestamp": "2026-01-01T08:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_46563"
   },
@@ -1348,7 +1348,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 341.43,
-    "timestamp": "2026-02-08T05:46:41.994643-06:00",
+    "timestamp": "2026-02-08T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_05963"
   },
@@ -1359,7 +1359,7 @@
     "payment_method": "EFECTY",
     "processor_id": "globalpay",
     "amount": 261961,
-    "timestamp": "2025-11-19T03:46:41.994643-06:00",
+    "timestamp": "2025-11-19T03:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_11963"
   },
@@ -1370,7 +1370,7 @@
     "payment_method": "SPEI",
     "processor_id": "quickrefund",
     "amount": 734.33,
-    "timestamp": "2025-09-04T04:46:41.994643-06:00",
+    "timestamp": "2025-09-04T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_26755"
   },
@@ -1381,7 +1381,7 @@
     "payment_method": "SPEI",
     "processor_id": "globalpay",
     "amount": 1360.79,
-    "timestamp": "2025-11-18T15:46:41.994643-06:00",
+    "timestamp": "2025-11-18T15:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_14655"
   },
@@ -1392,7 +1392,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "quickrefund",
     "amount": 1047.87,
-    "timestamp": "2025-12-17T20:46:41.994643-06:00",
+    "timestamp": "2025-12-17T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_26267"
   },
@@ -1403,7 +1403,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 639.09,
-    "timestamp": "2025-09-11T16:46:41.994643-06:00",
+    "timestamp": "2025-09-11T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_33805"
   },
@@ -1414,7 +1414,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 559.4,
-    "timestamp": "2026-01-17T08:46:41.994643-06:00",
+    "timestamp": "2026-01-17T08:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_13325"
   },
@@ -1425,7 +1425,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 166.03,
-    "timestamp": "2026-01-06T12:46:41.994643-06:00",
+    "timestamp": "2026-01-06T12:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_21346"
   },
@@ -1436,7 +1436,7 @@
     "payment_method": "BOLETO",
     "processor_id": "globalpay",
     "amount": 389.06,
-    "timestamp": "2025-12-29T01:46:41.994643-06:00",
+    "timestamp": "2025-12-29T01:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_20892"
   },
@@ -1447,7 +1447,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 258.92,
-    "timestamp": "2025-12-03T21:46:41.994643-06:00",
+    "timestamp": "2025-12-03T21:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_05315"
   },
@@ -1458,7 +1458,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 1843.2,
-    "timestamp": "2025-11-07T18:46:41.994643-06:00",
+    "timestamp": "2025-11-07T18:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_01299"
   },
@@ -1469,7 +1469,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 121.58,
-    "timestamp": "2026-01-13T22:46:41.994643-06:00",
+    "timestamp": "2026-01-13T22:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_32391"
   },
@@ -1480,7 +1480,7 @@
     "payment_method": "EFECTY",
     "processor_id": "globalpay",
     "amount": 300898,
-    "timestamp": "2025-12-29T21:46:41.994643-06:00",
+    "timestamp": "2025-12-29T21:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_13187"
   },
@@ -1491,7 +1491,7 @@
     "payment_method": "PSE",
     "processor_id": "colpay",
     "amount": 97023,
-    "timestamp": "2026-02-08T19:46:41.994643-06:00",
+    "timestamp": "2026-02-08T19:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_02158"
   },
@@ -1502,7 +1502,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "valueproc",
     "amount": 139.62,
-    "timestamp": "2025-10-03T18:46:41.994643-06:00",
+    "timestamp": "2025-10-03T18:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_31579"
   },
@@ -1513,7 +1513,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 337.72,
-    "timestamp": "2026-01-22T09:46:41.994643-06:00",
+    "timestamp": "2026-01-22T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_15463"
   },
@@ -1524,7 +1524,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 785.47,
-    "timestamp": "2026-01-14T10:46:41.994643-06:00",
+    "timestamp": "2026-01-14T10:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_23436"
   },
@@ -1535,7 +1535,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 392.12,
-    "timestamp": "2026-01-29T20:46:41.994643-06:00",
+    "timestamp": "2026-01-29T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_05351"
   },
@@ -1546,7 +1546,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 1297.73,
-    "timestamp": "2025-12-31T03:46:41.994643-06:00",
+    "timestamp": "2025-12-31T03:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_10609"
   },
@@ -1557,7 +1557,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 204.21,
-    "timestamp": "2025-10-02T06:46:41.994643-06:00",
+    "timestamp": "2025-10-02T06:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_38421"
   },
@@ -1568,7 +1568,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 1291.62,
-    "timestamp": "2025-10-16T11:46:41.994643-06:00",
+    "timestamp": "2025-10-16T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_29689"
   },
@@ -1579,7 +1579,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 104.48,
-    "timestamp": "2025-10-25T20:46:41.994643-06:00",
+    "timestamp": "2025-10-25T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_15252"
   },
@@ -1590,7 +1590,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 396.5,
-    "timestamp": "2025-10-07T05:46:41.994643-06:00",
+    "timestamp": "2025-10-07T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_09290"
   },
@@ -1601,7 +1601,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 568008,
-    "timestamp": "2026-02-23T17:46:41.994643-06:00",
+    "timestamp": "2026-02-23T17:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_25522"
   },
@@ -1612,7 +1612,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 1152.92,
-    "timestamp": "2025-12-10T22:46:41.994643-06:00",
+    "timestamp": "2025-12-10T22:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_11121"
   },
@@ -1623,7 +1623,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 766.14,
-    "timestamp": "2025-11-09T23:46:41.994643-06:00",
+    "timestamp": "2025-11-09T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_16407"
   },
@@ -1634,7 +1634,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 164.69,
-    "timestamp": "2025-12-26T04:46:41.994643-06:00",
+    "timestamp": "2025-12-26T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_32267"
   },
@@ -1645,7 +1645,7 @@
     "payment_method": "PSE",
     "processor_id": "colpay",
     "amount": 31998,
-    "timestamp": "2026-02-18T01:46:41.994643-06:00",
+    "timestamp": "2026-02-18T01:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_33350"
   },
@@ -1656,7 +1656,7 @@
     "payment_method": "PSE",
     "processor_id": "colpay",
     "amount": 105805,
-    "timestamp": "2025-09-12T20:46:41.994643-06:00",
+    "timestamp": "2025-09-12T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_02985"
   },
@@ -1667,7 +1667,7 @@
     "payment_method": "PIX",
     "processor_id": "valueproc",
     "amount": 43.86,
-    "timestamp": "2026-02-16T16:46:41.994643-06:00",
+    "timestamp": "2026-02-16T16:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_40470"
   },
@@ -1678,7 +1678,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 68.21,
-    "timestamp": "2025-11-18T19:46:41.994643-06:00",
+    "timestamp": "2025-11-18T19:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_27982"
   },
@@ -1689,7 +1689,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 125.16,
-    "timestamp": "2026-01-04T12:46:41.994643-06:00",
+    "timestamp": "2026-01-04T12:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_26511"
   },
@@ -1700,7 +1700,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 51.71,
-    "timestamp": "2025-11-26T01:46:41.994643-06:00",
+    "timestamp": "2025-11-26T01:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_09922"
   },
@@ -1711,7 +1711,7 @@
     "payment_method": "PSE",
     "processor_id": "colpay",
     "amount": 30304,
-    "timestamp": "2025-10-09T17:46:41.994643-06:00",
+    "timestamp": "2025-10-09T17:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_17420"
   },
@@ -1722,7 +1722,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 327803,
-    "timestamp": "2025-10-23T14:46:41.994643-06:00",
+    "timestamp": "2025-10-23T14:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_37662"
   },
@@ -1733,7 +1733,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "valueproc",
     "amount": 32852,
-    "timestamp": "2026-01-27T00:46:41.994643-06:00",
+    "timestamp": "2026-01-27T00:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_17764"
   },
@@ -1744,7 +1744,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 204.57,
-    "timestamp": "2025-11-03T05:46:41.994643-06:00",
+    "timestamp": "2025-11-03T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06135"
   },
@@ -1755,7 +1755,7 @@
     "payment_method": "PIX",
     "processor_id": "valueproc",
     "amount": 469.59,
-    "timestamp": "2026-02-16T09:46:41.994643-06:00",
+    "timestamp": "2026-02-16T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_47667"
   },
@@ -1766,7 +1766,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 472.97,
-    "timestamp": "2025-10-07T20:46:41.994643-06:00",
+    "timestamp": "2025-10-07T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_20450"
   },
@@ -1777,7 +1777,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 138.25,
-    "timestamp": "2025-11-25T18:46:41.994643-06:00",
+    "timestamp": "2025-11-25T18:49:15.477847-06:00",
     "settled": false,
     "customer_id": "cust_21976"
   },
@@ -1788,7 +1788,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 125.4,
-    "timestamp": "2025-09-06T11:46:41.994643-06:00",
+    "timestamp": "2025-09-06T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_40897"
   },
@@ -1799,7 +1799,7 @@
     "payment_method": "PIX",
     "processor_id": "globalpay",
     "amount": 104.57,
-    "timestamp": "2025-12-21T11:46:41.994643-06:00",
+    "timestamp": "2025-12-21T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_26179"
   },
@@ -1810,7 +1810,7 @@
     "payment_method": "OXXO",
     "processor_id": "quickrefund",
     "amount": 2872.65,
-    "timestamp": "2025-08-30T07:46:41.994643-06:00",
+    "timestamp": "2025-08-30T07:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_13712"
   },
@@ -1821,7 +1821,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 588.47,
-    "timestamp": "2026-01-30T12:46:41.994643-06:00",
+    "timestamp": "2026-01-30T12:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_13833"
   },
@@ -1832,7 +1832,7 @@
     "payment_method": "OXXO",
     "processor_id": "valueproc",
     "amount": 757.94,
-    "timestamp": "2025-11-02T18:46:41.994643-06:00",
+    "timestamp": "2025-11-02T18:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_20631"
   },
@@ -1843,7 +1843,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "valueproc",
     "amount": 37436,
-    "timestamp": "2025-11-17T05:46:41.994643-06:00",
+    "timestamp": "2025-11-17T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_43395"
   },
@@ -1854,7 +1854,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 183959,
-    "timestamp": "2025-11-29T10:46:41.994643-06:00",
+    "timestamp": "2025-11-29T10:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_44823"
   },
@@ -1865,7 +1865,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 350.26,
-    "timestamp": "2025-08-28T22:46:41.994643-06:00",
+    "timestamp": "2025-08-28T22:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_04018"
   },
@@ -1876,7 +1876,7 @@
     "payment_method": "EFECTY",
     "processor_id": "valueproc",
     "amount": 293796,
-    "timestamp": "2026-01-26T21:46:41.994643-06:00",
+    "timestamp": "2026-01-26T21:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_30960"
   },
@@ -1887,7 +1887,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 138.45,
-    "timestamp": "2025-11-09T04:46:41.994643-06:00",
+    "timestamp": "2025-11-09T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_41877"
   },
@@ -1898,7 +1898,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 312.61,
-    "timestamp": "2025-12-01T17:46:41.994643-06:00",
+    "timestamp": "2025-12-01T17:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_39654"
   },
@@ -1909,7 +1909,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 99058,
-    "timestamp": "2026-01-09T06:46:41.994643-06:00",
+    "timestamp": "2026-01-09T06:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_47393"
   },
@@ -1920,7 +1920,7 @@
     "payment_method": "PIX",
     "processor_id": "quickrefund",
     "amount": 69.4,
-    "timestamp": "2026-01-13T01:46:41.994643-06:00",
+    "timestamp": "2026-01-13T01:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_07336"
   },
@@ -1931,7 +1931,7 @@
     "payment_method": "SPEI",
     "processor_id": "mexpay",
     "amount": 339.92,
-    "timestamp": "2025-11-05T05:46:41.994643-06:00",
+    "timestamp": "2025-11-05T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06928"
   },
@@ -1942,7 +1942,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 28.73,
-    "timestamp": "2025-12-31T20:46:41.994643-06:00",
+    "timestamp": "2025-12-31T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_14863"
   },
@@ -1953,7 +1953,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 88.16,
-    "timestamp": "2026-02-24T04:46:41.994643-06:00",
+    "timestamp": "2026-02-24T04:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_31113"
   },
@@ -1964,7 +1964,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 1007.91,
-    "timestamp": "2025-12-20T02:46:41.994643-06:00",
+    "timestamp": "2025-12-20T02:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_04418"
   },
@@ -1975,7 +1975,7 @@
     "payment_method": "OXXO",
     "processor_id": "mexpay",
     "amount": 135.37,
-    "timestamp": "2026-01-16T20:46:41.994643-06:00",
+    "timestamp": "2026-01-16T20:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_04791"
   },
@@ -1986,7 +1986,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 87.63,
-    "timestamp": "2025-09-03T18:46:41.994643-06:00",
+    "timestamp": "2025-09-03T18:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_07902"
   },
@@ -1997,7 +1997,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "quickrefund",
     "amount": 66.3,
-    "timestamp": "2025-11-01T13:46:41.994643-06:00",
+    "timestamp": "2025-11-01T13:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_11816"
   },
@@ -2008,7 +2008,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "quickrefund",
     "amount": 30.63,
-    "timestamp": "2026-02-06T05:46:41.994643-06:00",
+    "timestamp": "2026-02-06T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_06720"
   },
@@ -2019,7 +2019,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "valueproc",
     "amount": 392.51,
-    "timestamp": "2025-11-05T22:46:41.994643-06:00",
+    "timestamp": "2025-11-05T22:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_21404"
   },
@@ -2030,7 +2030,7 @@
     "payment_method": "PIX",
     "processor_id": "globalpay",
     "amount": 121.25,
-    "timestamp": "2026-01-23T14:46:41.994643-06:00",
+    "timestamp": "2026-01-23T14:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_36028"
   },
@@ -2041,7 +2041,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 357.02,
-    "timestamp": "2026-01-02T02:46:41.994643-06:00",
+    "timestamp": "2026-01-02T02:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_25049"
   },
@@ -2052,7 +2052,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "colpay",
     "amount": 150907,
-    "timestamp": "2025-11-30T23:46:41.994643-06:00",
+    "timestamp": "2025-11-30T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_00091"
   },
@@ -2063,7 +2063,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 52.06,
-    "timestamp": "2025-10-05T14:46:41.994643-06:00",
+    "timestamp": "2025-10-05T14:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_14181"
   },
@@ -2074,7 +2074,7 @@
     "payment_method": "SPEI",
     "processor_id": "valueproc",
     "amount": 108.68,
-    "timestamp": "2026-02-10T09:46:41.994643-06:00",
+    "timestamp": "2026-02-10T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_36123"
   },
@@ -2085,7 +2085,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "mexpay",
     "amount": 246.05,
-    "timestamp": "2025-09-30T07:46:41.994643-06:00",
+    "timestamp": "2025-09-30T07:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_38145"
   },
@@ -2096,7 +2096,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 220.31,
-    "timestamp": "2025-12-03T09:46:41.994643-06:00",
+    "timestamp": "2025-12-03T09:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_22095"
   },
@@ -2107,7 +2107,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 409.24,
-    "timestamp": "2026-01-09T18:46:41.994643-06:00",
+    "timestamp": "2026-01-09T18:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_45799"
   },
@@ -2118,7 +2118,7 @@
     "payment_method": "EFECTY",
     "processor_id": "colpay",
     "amount": 244224,
-    "timestamp": "2026-02-03T18:46:41.994643-06:00",
+    "timestamp": "2026-02-03T18:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_48056"
   },
@@ -2129,7 +2129,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "globalpay",
     "amount": 135651,
-    "timestamp": "2025-12-05T01:46:41.994643-06:00",
+    "timestamp": "2025-12-05T01:49:15.477847-06:00",
     "settled": false,
     "customer_id": "cust_43412"
   },
@@ -2140,7 +2140,7 @@
     "payment_method": "BOLETO",
     "processor_id": "paybr",
     "amount": 95.66,
-    "timestamp": "2025-09-21T23:46:41.994643-06:00",
+    "timestamp": "2025-09-21T23:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_27460"
   },
@@ -2151,7 +2151,7 @@
     "payment_method": "BOLETO",
     "processor_id": "globalpay",
     "amount": 131.13,
-    "timestamp": "2026-01-27T05:46:41.994643-06:00",
+    "timestamp": "2026-01-27T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_36607"
   },
@@ -2162,7 +2162,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "paybr",
     "amount": 170.84,
-    "timestamp": "2026-02-03T06:46:41.994643-06:00",
+    "timestamp": "2026-02-03T06:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_20311"
   },
@@ -2173,7 +2173,7 @@
     "payment_method": "PSE",
     "processor_id": "globalpay",
     "amount": 128587,
-    "timestamp": "2026-02-24T05:46:41.994643-06:00",
+    "timestamp": "2026-02-24T05:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_04686"
   },
@@ -2184,7 +2184,7 @@
     "payment_method": "CREDIT_CARD",
     "processor_id": "quickrefund",
     "amount": 426.01,
-    "timestamp": "2025-09-12T11:46:41.994643-06:00",
+    "timestamp": "2025-09-12T11:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_41581"
   },
@@ -2195,7 +2195,7 @@
     "payment_method": "PIX",
     "processor_id": "paybr",
     "amount": 723.19,
-    "timestamp": "2025-10-17T07:46:41.994643-06:00",
+    "timestamp": "2025-10-17T07:49:15.477847-06:00",
     "settled": true,
     "customer_id": "cust_47760"
   }
