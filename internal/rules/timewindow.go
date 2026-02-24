@@ -8,8 +8,6 @@ import (
 	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
-// IsReversalEligible checks if a transaction can be reversed (voided).
-// Reversals require the transaction to be less than 24 hours old and not yet settled.
 func IsReversalEligible(tx model.Transaction, now time.Time) (eligible bool, reason string) {
 	hoursSince := now.Sub(tx.Timestamp).Hours()
 	if tx.Settled {
@@ -21,8 +19,6 @@ func IsReversalEligible(tx model.Transaction, now time.Time) (eligible bool, rea
 	return true, fmt.Sprintf("Transaction is %.1f hours old and unsettled; free reversal available", hoursSince)
 }
 
-// IsWithinTimeWindow checks if a refund method's time window is still open.
-// A MaxAgeDays of 0 means no limit. For REVERSAL, use IsReversalEligible instead.
 func IsWithinTimeWindow(tx model.Transaction, allowed model.AllowedRefund, now time.Time) (eligible bool, reason string) {
 	if allowed.MaxAgeDays == 0 {
 		return true, "No time limit for this refund method"
@@ -35,8 +31,6 @@ func IsWithinTimeWindow(tx model.Transaction, allowed model.AllowedRefund, now t
 	return true, fmt.Sprintf("Within %s window (%d of %d days used, %d remaining)", allowed.Method, daysSince, allowed.MaxAgeDays, remaining)
 }
 
-// DaysUntilExpiry returns how many days remain before a time window closes.
-// Returns -1 if the window has no limit.
 func DaysUntilExpiry(tx model.Transaction, allowed model.AllowedRefund, now time.Time) int {
 	if allowed.MaxAgeDays == 0 {
 		return -1

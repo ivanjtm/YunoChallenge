@@ -7,13 +7,11 @@ import (
 	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
-// EligiblePath represents a refund method that passed all eligibility checks.
 type EligiblePath struct {
 	Method model.RefundMethod
 	Reason string
 }
 
-// FindEligiblePaths returns all refund methods that are available for this transaction right now.
 func FindEligiblePaths(tx model.Transaction, ruleIndex *RuleIndex, now time.Time) []EligiblePath {
 	allowed := ruleIndex.AllowedRefundMethods(tx.PaymentMethod, tx.Country)
 	if len(allowed) == 0 {
@@ -54,8 +52,6 @@ func FindEligiblePaths(tx model.Transaction, ruleIndex *RuleIndex, now time.Time
 	return paths
 }
 
-// TimeSensitiveWindows returns windows that are approaching expiry (within threshold days).
-// Used by batch analysis to flag urgent refunds.
 func TimeSensitiveWindows(tx model.Transaction, ruleIndex *RuleIndex, now time.Time, thresholdDays int) []model.TimeSensitiveFlag {
 	allowed := ruleIndex.AllowedRefundMethods(tx.PaymentMethod, tx.Country)
 	var flags []model.TimeSensitiveFlag

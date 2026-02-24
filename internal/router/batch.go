@@ -10,17 +10,12 @@ import (
 	"github.com/ivanjtm/YunoChallenge/internal/rules"
 )
 
-// indexedRoute pairs a routing result with its original index to preserve order
-// after parallel fan-out.
 type indexedRoute struct {
 	index int
 	tx    model.Transaction
 	route model.RefundRouteResult
 }
 
-// AnalyzeBatch processes multiple refund requests concurrently and produces an
-// optimization report. SelectRoute calls are fanned out across NumCPU workers;
-// accumulation happens single-threaded to avoid lock contention on maps.
 func (r *Router) AnalyzeBatch(txns []model.Transaction, now time.Time) model.BatchRefundResult {
 	n := len(txns)
 	result := model.BatchRefundResult{
@@ -32,7 +27,6 @@ func (r *Router) AnalyzeBatch(txns []model.Transaction, now time.Time) model.Bat
 		LimitedOptions:    make([]model.LimitedOptionFlag, 0),
 	}
 
-	// Fan out routing across workers
 	workers := runtime.NumCPU()
 	if workers > n {
 		workers = n
@@ -66,7 +60,6 @@ func (r *Router) AnalyzeBatch(txns []model.Transaction, now time.Time) model.Bat
 		close(results)
 	}()
 
-	// Accumulate single-threaded — no locks needed on maps
 	for ir := range results {
 		result.Results[ir.index] = ir.route
 		route := ir.route

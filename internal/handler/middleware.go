@@ -9,8 +9,6 @@ import (
 	"time"
 )
 
-// Chain applies middlewares in reverse order so that the first middleware
-// in the list is the outermost (executed first on each request).
 func Chain(h http.Handler, middlewares ...func(http.Handler) http.Handler) http.Handler {
 	for i := len(middlewares) - 1; i >= 0; i-- {
 		h = middlewares[i](h)
@@ -28,7 +26,6 @@ func (sr *statusRecorder) WriteHeader(code int) {
 	sr.ResponseWriter.WriteHeader(code)
 }
 
-// LoggingMiddleware logs each request with method, path, status code, and duration.
 func LoggingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
@@ -45,8 +42,6 @@ func LoggingMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// ContentTypeMiddleware ensures that POST, PUT, and PATCH requests contain
-// an application/json Content-Type header.
 func ContentTypeMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
@@ -62,8 +57,6 @@ func ContentTypeMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// RecoveryMiddleware recovers from panics, logs the stack trace,
-// and returns a 500 Internal Server Error.
 func RecoveryMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		defer func() {
@@ -77,7 +70,6 @@ func RecoveryMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// WriteJSON writes a JSON response with the given HTTP status code and data.
 func WriteJSON(w http.ResponseWriter, status int, data any) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)
@@ -91,7 +83,6 @@ type errorResponse struct {
 	Message string `json:"message"`
 }
 
-// WriteError writes a JSON error response with the given status, error code, and message.
 func WriteError(w http.ResponseWriter, status int, errCode string, message string) {
 	WriteJSON(w, status, errorResponse{
 		Error:   errCode,

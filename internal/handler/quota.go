@@ -13,7 +13,6 @@ type QuotaHandler struct {
 	Tracker *quota.Tracker
 }
 
-// Set applies simulation overrides.
 func (h *QuotaHandler) Set(w http.ResponseWriter, r *http.Request) {
 	var req model.SimulationRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
@@ -34,7 +33,6 @@ func (h *QuotaHandler) Set(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// Reset clears all simulation overrides.
 func (h *QuotaHandler) Reset(w http.ResponseWriter, r *http.Request) {
 	h.Tracker.ResetOverrides()
 

@@ -32,9 +32,6 @@ type countryInfo struct {
 	currency model.Currency
 }
 
-// GenerateTransactions creates count realistic test transactions using a
-// deterministic random source seeded with 42. The first 23 transactions are
-// hardcoded edge cases; the remainder are randomly generated.
 func GenerateTransactions(count int, now time.Time) []model.Transaction {
 	txns := make([]model.Transaction, 0, count)
 
@@ -255,7 +252,6 @@ func GenerateTransactions(count int, now time.Time) []model.Transaction {
 	return txns
 }
 
-// GenerateAndSave generates transactions and writes them to a JSON file at path.
 func GenerateAndSave(path string, count int, now time.Time) error {
 	txns := GenerateTransactions(count, now)
 

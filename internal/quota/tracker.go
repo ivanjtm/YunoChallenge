@@ -8,7 +8,6 @@ import (
 	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
-// Tracker manages processor refund quotas and availability simulation.
 type Tracker struct {
 	mu         sync.Mutex
 	processors map[string]model.Processor
@@ -17,7 +16,6 @@ type Tracker struct {
 	resetDate  time.Time
 }
 
-// NewTracker creates a new quota tracker from processor configs.
 func NewTracker(processors []model.Processor) *Tracker {
 	procMap := make(map[string]model.Processor)
 	for _, p := range processors {
@@ -39,7 +37,6 @@ func (t *Tracker) resetIfNewDay(now time.Time) {
 	}
 }
 
-// IsAvailable checks if a processor is available (not overridden as unavailable, not at capacity).
 func (t *Tracker) IsAvailable(processorID string, now time.Time) (bool, string) {
 	t.mu.Lock()
 	defer t.mu.Unlock()
@@ -72,7 +69,6 @@ func (t *Tracker) IsAvailable(processorID string, now time.Time) (bool, string) 
 	return true, ""
 }
 
-// Consume records a refund against a processor's daily quota.
 func (t *Tracker) Consume(processorID string, now time.Time) error {
 	t.mu.Lock()
 	defer t.mu.Unlock()
@@ -81,7 +77,6 @@ func (t *Tracker) Consume(processorID string, now time.Time) error {
 	return nil
 }
 
-// SetOverrides applies simulation overrides to processors.
 func (t *Tracker) SetOverrides(overrides map[string]model.ProcessorOverride) {
 	t.mu.Lock()
 	defer t.mu.Unlock()
@@ -90,14 +85,12 @@ func (t *Tracker) SetOverrides(overrides map[string]model.ProcessorOverride) {
 	}
 }
 
-// ResetOverrides clears all simulation overrides.
 func (t *Tracker) ResetOverrides() {
 	t.mu.Lock()
 	defer t.mu.Unlock()
 	t.overrides = make(map[string]model.ProcessorOverride)
 }
 
-// Status returns the quota status for all processors.
 func (t *Tracker) Status(now time.Time) []model.QuotaStatus {
 	t.mu.Lock()
 	defer t.mu.Unlock()

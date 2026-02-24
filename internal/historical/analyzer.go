@@ -9,8 +9,6 @@ import (
 	"github.com/ivanjtm/YunoChallenge/internal/router"
 )
 
-// Analyze performs historical cost analysis over a set of transactions,
-// comparing naive refund costs against smart-routed costs.
 func Analyze(txns []model.Transaction, r *router.Router, now time.Time) model.HistoricalAnalysis {
 	result := model.HistoricalAnalysis{
 		TotalTransactions: len(txns),

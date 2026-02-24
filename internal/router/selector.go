@@ -10,13 +10,11 @@ import (
 	"github.com/ivanjtm/YunoChallenge/internal/rules"
 )
 
-// Router is the refund routing engine.
 type Router struct {
 	Processors []model.Processor
 	RuleIndex  *rules.RuleIndex
 }
 
-// NewRouter creates a new Router from config.
 func NewRouter(processors []model.Processor, compatRules []model.CompatibilityRule) *Router {
 	return &Router{
 		Processors: processors,
@@ -24,7 +22,6 @@ func NewRouter(processors []model.Processor, compatRules []model.CompatibilityRu
 	}
 }
 
-// SelectRoute finds the optimal refund route for a transaction.
 func (r *Router) SelectRoute(tx model.Transaction, now time.Time) model.RefundRouteResult {
 	eligiblePaths := rules.FindEligiblePaths(tx, r.RuleIndex, now)
 
@@ -74,8 +71,6 @@ func (r *Router) SelectRoute(tx model.Transaction, now time.Time) model.RefundRo
 	}
 
 	sort.Slice(candidates, func(i, j int) bool {
-		// Account credit is always ranked last: it's free but worse for customer
-		// experience since money stays locked in the marketplace balance.
 		iIsCredit := candidates[i].RefundMethod == model.RefundAccountCredit
 		jIsCredit := candidates[j].RefundMethod == model.RefundAccountCredit
 		if iIsCredit != jIsCredit {

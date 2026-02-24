@@ -8,14 +8,12 @@ import (
 	"github.com/ivanjtm/YunoChallenge/internal/model"
 )
 
-// AppConfig holds all loaded configuration data for the refund routing service.
 type AppConfig struct {
 	Processors   []model.Processor
 	Rules        []model.CompatibilityRule
 	Transactions []model.Transaction
 }
 
-// Load reads processors and compatibility rules from the given JSON file paths.
 func Load(processorsPath, rulesPath string) (*AppConfig, error) {
 	processors, err := loadProcessors(processorsPath)
 	if err != nil {
@@ -39,8 +37,6 @@ func Load(processorsPath, rulesPath string) (*AppConfig, error) {
 	return cfg, nil
 }
 
-// LoadWithTransactions reads processors, compatibility rules, and transactions
-// from the given JSON file paths.
 func LoadWithTransactions(processorsPath, rulesPath, transactionsPath string) (*AppConfig, error) {
 	cfg, err := Load(processorsPath, rulesPath)
 	if err != nil {
@@ -56,8 +52,6 @@ func LoadWithTransactions(processorsPath, rulesPath, transactionsPath string) (*
 	return cfg, nil
 }
 
-// ProcessorByID returns the processor with the given ID and true if found,
-// or a zero-value Processor and false otherwise.
 func (c *AppConfig) ProcessorByID(id string) (model.Processor, bool) {
 	for _, p := range c.Processors {
 		if p.ID == id {
