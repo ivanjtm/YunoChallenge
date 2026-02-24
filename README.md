@@ -119,7 +119,7 @@ The service loads processor fee structures and compatibility rules from JSON con
     +-- cost/calculator.go           # Fee formula: max(min_fee, min(max_fee, base + amount * %))
     +-- router/
     |   +-- selector.go              # Core 7-step routing algorithm
-    |   +-- batch.go                 # Batch analysis with per-processor and per-method breakdowns
+    |   +-- batch.go                 # Concurrent batch analysis with worker pool
     +-- quota/tracker.go             # Processor daily quota tracking + simulation overrides
     +-- historical/analyzer.go       # Historical what-if analysis with annual savings projection
     +-- handler/                     # HTTP handlers + middleware (logging, recovery, content-type)
@@ -214,7 +214,7 @@ If `max_fee` is 0, there is no cap. Reversals and account credits always cost 0.
 |----------|-------------------------------|------------------------------------------------|
 | `GET`    | `/api/v1/health`              | Health check with loaded config stats          |
 | `POST`   | `/api/v1/refund`              | Route a single refund to the cheapest path     |
-| `POST`   | `/api/v1/refund/batch`        | Batch analysis with savings report             |
+| `POST`   | `/api/v1/refund/batch`        | Concurrent batch analysis with savings report  |
 | `POST`   | `/api/v1/simulation/quota`    | Set processor availability overrides           |
 | `DELETE` | `/api/v1/simulation/quota`    | Reset simulation state to defaults             |
 | `POST`   | `/api/v1/analysis/historical` | Historical cost analysis with annual projection|
@@ -418,7 +418,7 @@ curl -s -X POST http://localhost:8080/api/v1/refund/batch \
   }'
 ```
 
-The response includes per-processor breakdowns, per-payment-method breakdowns, flagged time-sensitive transactions (refund windows closing within 15 days), and flagged limited-option transactions (cash methods with fewer routing choices).
+Transactions are routed concurrently across CPU cores. The response includes per-processor breakdowns, per-payment-method breakdowns, flagged time-sensitive transactions (refund windows closing within 15 days), and flagged limited-option transactions (cash methods with fewer routing choices).
 
 ### Example 4: Processor Quota Simulation
 
@@ -461,6 +461,56 @@ curl -s -X POST http://localhost:8080/api/v1/analysis/historical \
 ```
 
 The response identifies the most expensive payment corridors (e.g., Colombia credit cards via GlobalPay), projects annual savings, and documents the complex refund rules that constrain routing decisions.
+
+---
+
+## Performance: Concurrent Batch Processing
+
+The batch endpoint (`POST /api/v1/refund/batch`) processes transactions concurrently using a goroutine worker pool. Each `SelectRoute` call -- the 7-step algorithm with rule lookups, cost calculations, and candidate ranking -- is independent per transaction, making it an ideal candidate for parallelism.
+
+### How It Works
+
+```
+                    +-----------+
+                    |  Request  |
+                    | (N txns)  |
+                    +-----+-----+
+                          |
+                    +-----+-----+
+                    |  Fan Out  |
+                    | (buffered |
+                    |  channel) |
+                    +-----+-----+
+                          |
+          +---------------+---------------+
+          |               |               |
+    +-----+-----+  +-----+-----+  +-----+-----+
+    |  Worker 1 |  |  Worker 2 |  |  Worker K |
+    | SelectRoute| | SelectRoute| | SelectRoute|  K = runtime.NumCPU()
+    +-----+-----+  +-----+-----+  +-----+-----+
+          |               |               |
+          +---------------+---------------+
+                          |
+                    +-----+-----+
+                    | Accumulate|
+                    | (single-  |
+                    |  threaded)|
+                    +-----+-----+
+                          |
+                    +-----+-----+
+                    | Response  |
+                    +-----------+
+```
+
+The implementation uses three components:
+
+1. **Job channel:** All transactions are sent into a buffered channel with their original index attached. The index ensures results are placed back in the correct position regardless of processing order.
+
+2. **Worker goroutines:** `runtime.NumCPU()` workers consume from the job channel in parallel. Each worker calls `SelectRoute` independently -- the routing engine is stateless and safe for concurrent reads. Workers are capped at the number of transactions to avoid idle goroutines on small batches.
+
+3. **Single-threaded accumulation:** After all workers finish, results are collected and map-based aggregation (per-processor summaries, per-method summaries, time-sensitive flags) happens on a single goroutine. This avoids mutex contention on the accumulator maps, which would negate the parallelism gains at small batch sizes.
+
+This design means the expensive work (rule lookups, fee calculations, candidate sorting per transaction) scales linearly with CPU cores, while the cheap work (summing costs into maps) stays simple and lock-free.
 
 ---
 
