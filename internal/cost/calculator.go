@@ -7,15 +7,14 @@ import (
 )
 
 // Calculate computes the refund fee for a given amount and fee structure.
-// Formula: cost = base_fee + (amount * percent_fee)
-// Then clamp: max(min_fee, min(max_fee, cost))
-// If max_fee is 0, there's no cap.
+// Formula: cost = base_fee + (amount * percent_fee), clamped to [min_fee, max_fee].
+// MaxFee of 0 means no cap. Reversals and account credits are always free.
 func Calculate(amount float64, fee model.RefundMethodFee) float64 {
 	if fee.Method == model.RefundReversal {
-		return 0 // reversals are always free
+		return 0
 	}
 	if fee.Method == model.RefundAccountCredit {
-		return 0 // account credits have no processor fee
+		return 0
 	}
 
 	cost := fee.BaseFee + (amount * fee.PercentFee)
@@ -27,7 +26,6 @@ func Calculate(amount float64, fee model.RefundMethodFee) float64 {
 		cost = fee.MaxFee
 	}
 
-	// Round to 2 decimal places (or 0 for COP)
 	cost = math.Round(cost*100) / 100
 
 	return cost
@@ -44,7 +42,6 @@ func FindMatchingFee(proc model.Processor, refundMethod model.RefundMethod, orig
 		if fee.Currency != currency && fee.Currency != "" {
 			continue
 		}
-		// Check if this fee covers the original payment method
 		for _, pm := range fee.PaymentMethods {
 			if pm == originalMethod {
 				return &proc.RefundFees[i]
@@ -54,11 +51,10 @@ func FindMatchingFee(proc model.Processor, refundMethod model.RefundMethod, orig
 	return nil
 }
 
-// CalculateNaive computes the "naive" refund cost -- what it would cost to
-// refund through the original processor using the default method.
-// Strategy: try SAME_METHOD first, then BANK_TRANSFER, then return a high estimate.
+// CalculateNaive computes the "naive" refund cost: what it would cost to refund
+// through the original processor using the default method (SAME_METHOD, then
+// BANK_TRANSFER, then a 3.5% worst-case estimate).
 func CalculateNaive(tx model.Transaction, processors []model.Processor) float64 {
-	// Find the original processor
 	var origProc *model.Processor
 	for i, p := range processors {
 		if p.ID == tx.ProcessorID {
@@ -67,21 +63,17 @@ func CalculateNaive(tx model.Transaction, processors []model.Processor) float64 
 		}
 	}
 	if origProc == nil {
-		// Unknown processor -- return a high default cost (3.5% as worst case)
 		return math.Round(tx.Amount*0.035*100) / 100
 	}
 
-	// Try SAME_METHOD through original processor
 	if fee := FindMatchingFee(*origProc, model.RefundSameMethod, tx.PaymentMethod, tx.Currency); fee != nil {
 		return Calculate(tx.Amount, *fee)
 	}
 
-	// Try BANK_TRANSFER through original processor
 	if fee := FindMatchingFee(*origProc, model.RefundBankTransfer, tx.PaymentMethod, tx.Currency); fee != nil {
 		return Calculate(tx.Amount, *fee)
 	}
 
-	// Original processor can't handle this refund at all -- use worst case
 	return math.Round(tx.Amount*0.035*100) / 100
 }
 

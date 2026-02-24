@@ -30,7 +30,6 @@ func (h *BatchHandler) Handle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Validate each transaction
 	for i, tx := range req.Transactions {
 		if tx.ID == "" {
 			WriteError(w, http.StatusUnprocessableEntity, "validation_error",

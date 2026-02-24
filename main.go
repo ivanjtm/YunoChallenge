@@ -15,13 +15,11 @@ import (
 )
 
 func main() {
-	// Determine port
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
 
-	// Generate test data if it doesn't exist
 	txnPath := "data/transactions.json"
 	if _, err := os.Stat(txnPath); os.IsNotExist(err) {
 		log.Println("Generating test transaction data...")
@@ -31,7 +29,6 @@ func main() {
 		log.Println("Generated 200 test transactions at", txnPath)
 	}
 
-	// Load configuration
 	log.Println("Loading configuration...")
 	cfg, err := internalconfig.LoadWithTransactions("config/processors.json", "config/rules.json", txnPath)
 	if err != nil {
@@ -39,20 +36,15 @@ func main() {
 	}
 	log.Printf("Loaded %d processors, %d rules, %d transactions", len(cfg.Processors), len(cfg.Rules), len(cfg.Transactions))
 
-	// Create router engine
 	routerEngine := router.NewRouter(cfg.Processors, cfg.Rules)
-
-	// Create quota tracker
 	quotaTracker := quota.NewTracker(cfg.Processors)
 
-	// Create handlers
 	healthH := &handler.HealthHandler{Config: cfg}
 	refundH := &handler.RefundHandler{Router: routerEngine}
 	batchH := &handler.BatchHandler{Router: routerEngine}
 	quotaH := &handler.QuotaHandler{Tracker: quotaTracker}
 	historicalH := &handler.HistoricalHandler{Router: routerEngine}
 
-	// Register routes
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/v1/health", healthH.Handle)
 	mux.HandleFunc("POST /api/v1/refund", refundH.Handle)
@@ -61,14 +53,12 @@ func main() {
 	mux.HandleFunc("DELETE /api/v1/simulation/quota", quotaH.Reset)
 	mux.HandleFunc("POST /api/v1/analysis/historical", historicalH.Handle)
 
-	// Apply middleware
 	srv := handler.Chain(mux,
 		handler.RecoveryMiddleware,
 		handler.LoggingMiddleware,
 		handler.ContentTypeMiddleware,
 	)
 
-	// Start server
 	addr := fmt.Sprintf(":%s", port)
 	log.Printf("Starting Refund Router Service on %s", addr)
 	log.Printf("Endpoints:")

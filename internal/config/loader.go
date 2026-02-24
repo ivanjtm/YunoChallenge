@@ -109,7 +109,6 @@ func loadTransactions(path string) ([]model.Transaction, error) {
 	return transactions, nil
 }
 
-// validate checks loaded configuration for basic correctness.
 func validate(cfg *AppConfig) error {
 	for i, p := range cfg.Processors {
 		if p.ID == "" {
@@ -125,13 +124,11 @@ func validate(cfg *AppConfig) error {
 			return fmt.Errorf("processor %q has no refund fees", p.ID)
 		}
 
-		// Build a set of currencies covered by refund fees.
 		feeCurrencies := make(map[model.Currency]bool)
 		for _, fee := range p.RefundFees {
 			feeCurrencies[fee.Currency] = true
 		}
 
-		// Warn if a supported country's typical currency is not covered by any fee.
 		countryCurrency := map[model.Country]model.Currency{
 			model.CountryBR: model.CurrencyBRL,
 			model.CountryMX: model.CurrencyMXN,

@@ -20,7 +20,6 @@ func (h *RefundHandler) Handle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Validate required fields
 	tx := req.Transaction
 	if tx.ID == "" {
 		WriteError(w, http.StatusBadRequest, "validation_error", "transaction.id is required")

@@ -2,7 +2,6 @@ package model
 
 import "time"
 
-// Country codes
 type Country string
 
 const (
@@ -11,7 +10,6 @@ const (
 	CountryCO Country = "CO"
 )
 
-// Currencies
 type Currency string
 
 const (
@@ -20,7 +18,6 @@ const (
 	CurrencyCOP Currency = "COP"
 )
 
-// Payment methods (original)
 type PaymentMethod string
 
 const (
@@ -33,17 +30,15 @@ const (
 	MethodEfecty     PaymentMethod = "EFECTY"
 )
 
-// Refund methods (how money gets back to customer)
 type RefundMethod string
 
 const (
-	RefundReversal      RefundMethod = "REVERSAL"       // void, free, <24h unsettled
-	RefundSameMethod    RefundMethod = "SAME_METHOD"    // e.g. PIX->PIX, Card->Card
-	RefundBankTransfer  RefundMethod = "BANK_TRANSFER"  // fallback, always available
-	RefundAccountCredit RefundMethod = "ACCOUNT_CREDIT" // marketplace balance credit
+	RefundReversal      RefundMethod = "REVERSAL"
+	RefundSameMethod    RefundMethod = "SAME_METHOD"
+	RefundBankTransfer  RefundMethod = "BANK_TRANSFER"
+	RefundAccountCredit RefundMethod = "ACCOUNT_CREDIT"
 )
 
-// Transaction represents an original payment
 type Transaction struct {
 	ID            string        `json:"id"`
 	Country       Country       `json:"country"`
@@ -56,7 +51,6 @@ type Transaction struct {
 	CustomerID    string        `json:"customer_id"`
 }
 
-// Processor config
 type Processor struct {
 	ID                  string               `json:"id"`
 	Name                string               `json:"name"`
@@ -74,10 +68,9 @@ type RefundMethodFee struct {
 	BaseFee        float64         `json:"base_fee"`
 	PercentFee     float64         `json:"percent_fee"`
 	MinFee         float64         `json:"min_fee"`
-	MaxFee         float64         `json:"max_fee"` // 0 = no cap
+	MaxFee         float64         `json:"max_fee"`
 }
 
-// Compatibility rules (loaded from rules.json)
 type CompatibilityRule struct {
 	OriginalMethod PaymentMethod   `json:"original_method"`
 	Country        Country         `json:"country"`
@@ -86,11 +79,9 @@ type CompatibilityRule struct {
 
 type AllowedRefund struct {
 	Method         RefundMethod `json:"method"`
-	MaxAgeDays     int          `json:"max_age_days"`    // 0 = no limit
-	RequireSettled *bool        `json:"require_settled"` // nil = don't care
+	MaxAgeDays     int          `json:"max_age_days"`
+	RequireSettled *bool        `json:"require_settled"`
 }
-
-// --- Routing results ---
 
 type RefundCandidate struct {
 	ProcessorID    string       `json:"processor_id"`
@@ -108,8 +99,6 @@ type RefundRouteResult struct {
 	NaiveCost     float64           `json:"naive_cost"`
 	Savings       float64           `json:"savings"`
 }
-
-// --- Batch types ---
 
 type BatchRefundRequest struct {
 	Transactions []Transaction `json:"transactions"`
@@ -159,8 +148,6 @@ type LimitedOptionFlag struct {
 	Message          string `json:"message"`
 }
 
-// --- Quota types (stretch) ---
-
 type QuotaStatus struct {
 	ProcessorID       string `json:"processor_id"`
 	DailyQuota        int    `json:"daily_quota"`
@@ -180,18 +167,16 @@ type ProcessorOverride struct {
 	QuotaUsed  *int  `json:"quota_used,omitempty"`
 }
 
-// --- Historical types (stretch) ---
-
 type HistoricalAnalysis struct {
-	TotalTransactions      int                `json:"total_transactions"`
-	TotalActualCost        float64            `json:"total_actual_cost"`
-	TotalSmartCost         float64            `json:"total_smart_cost"`
-	TotalSavings           float64            `json:"total_savings"`
-	AnnualProjection       float64            `json:"annual_projection"`
-	MostExpensiveCorridors []CostCorridor     `json:"most_expensive_corridors"`
+	TotalTransactions      int                 `json:"total_transactions"`
+	TotalActualCost        float64             `json:"total_actual_cost"`
+	TotalSmartCost         float64             `json:"total_smart_cost"`
+	TotalSavings           float64             `json:"total_savings"`
+	AnnualProjection       float64             `json:"annual_projection"`
+	MostExpensiveCorridors []CostCorridor      `json:"most_expensive_corridors"`
 	HighestCostProcessors  []ProcessorCostRank `json:"highest_cost_processors"`
-	ComplexRefundRules     []ComplexRuleNote  `json:"complex_refund_rules"`
-	MonthlySavings         map[string]float64 `json:"monthly_savings"`
+	ComplexRefundRules     []ComplexRuleNote    `json:"complex_refund_rules"`
+	MonthlySavings         map[string]float64  `json:"monthly_savings"`
 }
 
 type CostCorridor struct {
@@ -214,8 +199,6 @@ type ComplexRuleNote struct {
 	Description string `json:"description"`
 	Impact      string `json:"impact"`
 }
-
-// --- API request wrappers ---
 
 type SingleRefundRequest struct {
 	Transaction Transaction `json:"transaction"`

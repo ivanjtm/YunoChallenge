@@ -18,7 +18,6 @@ func Chain(h http.Handler, middlewares ...func(http.Handler) http.Handler) http.
 	return h
 }
 
-// statusRecorder wraps http.ResponseWriter to capture the status code.
 type statusRecorder struct {
 	http.ResponseWriter
 	statusCode int
@@ -47,7 +46,7 @@ func LoggingMiddleware(next http.Handler) http.Handler {
 }
 
 // ContentTypeMiddleware ensures that POST, PUT, and PATCH requests contain
-// an application/json Content-Type header. Other methods pass through.
+// an application/json Content-Type header.
 func ContentTypeMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
@@ -63,8 +62,8 @@ func ContentTypeMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// RecoveryMiddleware recovers from panics, logs the panic value and stack trace,
-// and returns a 500 Internal Server Error with a generic JSON error body.
+// RecoveryMiddleware recovers from panics, logs the stack trace,
+// and returns a 500 Internal Server Error.
 func RecoveryMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		defer func() {
@@ -87,7 +86,6 @@ func WriteJSON(w http.ResponseWriter, status int, data any) {
 	}
 }
 
-// errorResponse is the shape of JSON error bodies returned by WriteError.
 type errorResponse struct {
 	Error   string `json:"error"`
 	Message string `json:"message"`
@@ -100,4 +98,3 @@ func WriteError(w http.ResponseWriter, status int, errCode string, message strin
 		Message: message,
 	})
 }
-

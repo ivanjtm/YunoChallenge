@@ -11,8 +11,6 @@ import (
 	"github.com/velamarket/refund-router/internal/model"
 )
 
-// weightedPick selects an item from items using the provided weights.
-// Weights do not need to sum to 1; they are treated as relative proportions.
 func weightedPick[T any](rng *rand.Rand, items []T, weights []float64) T {
 	total := 0.0
 	for _, w := range weights {
@@ -36,14 +34,10 @@ type countryInfo struct {
 
 // GenerateTransactions creates count realistic test transactions using a
 // deterministic random source seeded with 42. The first 23 transactions are
-// hardcoded edge cases; the remainder are randomly generated following the
-// specified country, payment-method, processor, and amount distributions.
+// hardcoded edge cases; the remainder are randomly generated.
 func GenerateTransactions(count int, now time.Time) []model.Transaction {
 	txns := make([]model.Transaction, 0, count)
 
-	// ---------------------------------------------------------------
-	// Hardcoded edge cases (always inserted first)
-	// ---------------------------------------------------------------
 	edges := []model.Transaction{
 		{
 			ID: "txn_edge_001", Country: model.CountryBR, Currency: model.CurrencyBRL,
@@ -164,9 +158,6 @@ func GenerateTransactions(count int, now time.Time) []model.Transaction {
 
 	txns = append(txns, edges...)
 
-	// ---------------------------------------------------------------
-	// Random generation for the remaining transactions
-	// ---------------------------------------------------------------
 	rng := rand.New(rand.NewSource(42))
 
 	countries := []countryInfo{
@@ -176,7 +167,6 @@ func GenerateTransactions(count int, now time.Time) []model.Transaction {
 	}
 	countryWeights := []float64{0.45, 0.35, 0.20}
 
-	// Payment methods per country.
 	paymentMethods := map[model.Country][]model.PaymentMethod{
 		model.CountryBR: {model.MethodPIX, model.MethodCreditCard, model.MethodBoleto},
 		model.CountryMX: {model.MethodCreditCard, model.MethodOXXO, model.MethodSPEI},
@@ -188,7 +178,6 @@ func GenerateTransactions(count int, now time.Time) []model.Transaction {
 		model.CountryCO: {0.40, 0.35, 0.25},
 	}
 
-	// Processors per country.
 	processors := map[model.Country][]string{
 		model.CountryBR: {"paybr", "globalpay", "quickrefund", "valueproc"},
 		model.CountryMX: {"mexpay", "globalpay", "quickrefund", "valueproc"},
@@ -200,7 +189,6 @@ func GenerateTransactions(count int, now time.Time) []model.Transaction {
 		model.CountryCO: {0.50, 0.30, 0.20},
 	}
 
-	// Log-normal parameters per currency: mu, sigma, min, max, decimals.
 	type amountParams struct {
 		mu       float64
 		sigma    float64
@@ -227,7 +215,6 @@ func GenerateTransactions(count int, now time.Time) []model.Transaction {
 		pm := weightedPick(rng, paymentMethods[cc], paymentWeights[cc])
 		proc := weightedPick(rng, processors[cc], processorWeights[cc])
 
-		// Amount (log-normal, clamped).
 		cfg := amountCfg[cur]
 		raw := math.Exp(rng.NormFloat64()*cfg.sigma + cfg.mu)
 		if raw < cfg.min {
@@ -242,10 +229,8 @@ func GenerateTransactions(count int, now time.Time) []model.Transaction {
 			raw = math.Round(raw)
 		}
 
-		// Timestamp: random within 6 months (180 days) before now.
 		ts := now.Add(-time.Duration(rng.Intn(180*24)) * time.Hour)
 
-		// Settlement.
 		age := now.Sub(ts)
 		var settled bool
 		if age > 2*time.Hour {

@@ -4,7 +4,7 @@ import "github.com/velamarket/refund-router/internal/model"
 
 // RuleIndex provides O(1) lookup for compatibility rules by (method, country) key.
 type RuleIndex struct {
-	index map[string]model.CompatibilityRule // key: "PIX:BR"
+	index map[string]model.CompatibilityRule
 }
 
 // NewRuleIndex builds an index from a slice of compatibility rules.
@@ -19,7 +19,6 @@ func NewRuleIndex(rules []model.CompatibilityRule) *RuleIndex {
 	return idx
 }
 
-// key builds the lookup key.
 func key(method model.PaymentMethod, country model.Country) string {
 	return string(method) + ":" + string(country)
 }

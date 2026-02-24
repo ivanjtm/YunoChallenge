@@ -9,15 +9,14 @@ import (
 	"github.com/velamarket/refund-router/internal/router"
 )
 
-// Analyze performs historical cost analysis over a set of transactions.
-// It computes what each refund would have cost naively vs. with smart routing.
+// Analyze performs historical cost analysis over a set of transactions,
+// comparing naive refund costs against smart-routed costs.
 func Analyze(txns []model.Transaction, r *router.Router, now time.Time) model.HistoricalAnalysis {
 	result := model.HistoricalAnalysis{
 		TotalTransactions: len(txns),
 		MonthlySavings:    make(map[string]float64),
 	}
 
-	// Track per-corridor and per-processor costs
 	type corridorKey struct {
 		Country       model.Country
 		PaymentMethod model.PaymentMethod
@@ -44,11 +43,9 @@ func Analyze(txns []model.Transaction, r *router.Router, now time.Time) model.Hi
 		result.TotalSmartCost += smartCost
 		result.TotalSavings += savings
 
-		// Monthly savings
 		monthKey := tx.Timestamp.Format("2006-01")
 		result.MonthlySavings[monthKey] += savings
 
-		// Corridor tracking (country + payment method)
 		ck := corridorKey{tx.Country, tx.PaymentMethod}
 		entry := corridorCosts[ck]
 		entry.totalNaive += naiveCost
@@ -56,21 +53,17 @@ func Analyze(txns []model.Transaction, r *router.Router, now time.Time) model.Hi
 		entry.count++
 		corridorCosts[ck] = entry
 
-		// Processor tracking (original processor)
 		pe := processorCosts[tx.ProcessorID]
 		pe.totalNaive += naiveCost
 		pe.count++
 		processorCosts[tx.ProcessorID] = pe
 	}
 
-	// Round totals
 	result.TotalActualCost = math.Round(result.TotalActualCost*100) / 100
 	result.TotalSmartCost = math.Round(result.TotalSmartCost*100) / 100
 	result.TotalSavings = math.Round(result.TotalSavings*100) / 100
 
-	// Annual projection (extrapolate from data span)
 	if len(txns) > 0 {
-		// Find date range of transactions
 		minTime := txns[0].Timestamp
 		maxTime := txns[0].Timestamp
 		for _, tx := range txns[1:] {
@@ -87,7 +80,6 @@ func Analyze(txns []model.Transaction, r *router.Router, now time.Time) model.Hi
 		}
 	}
 
-	// Build most expensive corridors (sorted by total naive cost desc)
 	for ck, data := range corridorCosts {
 		result.MostExpensiveCorridors = append(result.MostExpensiveCorridors, model.CostCorridor{
 			Country:       ck.Country,
@@ -100,12 +92,10 @@ func Analyze(txns []model.Transaction, r *router.Router, now time.Time) model.Hi
 	sort.Slice(result.MostExpensiveCorridors, func(i, j int) bool {
 		return result.MostExpensiveCorridors[i].TotalCost > result.MostExpensiveCorridors[j].TotalCost
 	})
-	// Keep top 5
 	if len(result.MostExpensiveCorridors) > 5 {
 		result.MostExpensiveCorridors = result.MostExpensiveCorridors[:5]
 	}
 
-	// Build highest cost processors (sorted by total cost desc)
 	for procID, data := range processorCosts {
 		result.HighestCostProcessors = append(result.HighestCostProcessors, model.ProcessorCostRank{
 			ProcessorID: procID,
@@ -118,7 +108,6 @@ func Analyze(txns []model.Transaction, r *router.Router, now time.Time) model.Hi
 		return result.HighestCostProcessors[i].TotalCost > result.HighestCostProcessors[j].TotalCost
 	})
 
-	// Add complex refund rule notes
 	result.ComplexRefundRules = []model.ComplexRuleNote{
 		{
 			Rule:        "OXXO_NO_SELF_REFUND",
@@ -152,7 +141,6 @@ func Analyze(txns []model.Transaction, r *router.Router, now time.Time) model.Hi
 		},
 	}
 
-	// Round monthly savings
 	for k, v := range result.MonthlySavings {
 		result.MonthlySavings[k] = math.Round(v*100) / 100
 	}

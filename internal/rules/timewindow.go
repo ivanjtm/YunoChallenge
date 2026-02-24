@@ -9,7 +9,7 @@ import (
 )
 
 // IsReversalEligible checks if a transaction can be reversed (voided).
-// Reversals require: transaction < 24 hours old AND not yet settled.
+// Reversals require the transaction to be less than 24 hours old and not yet settled.
 func IsReversalEligible(tx model.Transaction, now time.Time) (eligible bool, reason string) {
 	hoursSince := now.Sub(tx.Timestamp).Hours()
 	if tx.Settled {
@@ -22,8 +22,7 @@ func IsReversalEligible(tx model.Transaction, now time.Time) (eligible bool, rea
 }
 
 // IsWithinTimeWindow checks if a refund method's time window is still open.
-// max_age_days=0 means no limit.
-// For REVERSAL, use IsReversalEligible instead.
+// A MaxAgeDays of 0 means no limit. For REVERSAL, use IsReversalEligible instead.
 func IsWithinTimeWindow(tx model.Transaction, allowed model.AllowedRefund, now time.Time) (eligible bool, reason string) {
 	if allowed.MaxAgeDays == 0 {
 		return true, "No time limit for this refund method"
@@ -37,7 +36,7 @@ func IsWithinTimeWindow(tx model.Transaction, allowed model.AllowedRefund, now t
 }
 
 // DaysUntilExpiry returns how many days remain before a time window closes.
-// Returns -1 if the window has no limit, or if already expired returns negative days.
+// Returns -1 if the window has no limit.
 func DaysUntilExpiry(tx model.Transaction, allowed model.AllowedRefund, now time.Time) int {
 	if allowed.MaxAgeDays == 0 {
 		return -1

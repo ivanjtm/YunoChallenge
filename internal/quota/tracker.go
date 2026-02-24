@@ -11,10 +11,10 @@ import (
 // Tracker manages processor refund quotas and availability simulation.
 type Tracker struct {
 	mu         sync.Mutex
-	processors map[string]model.Processor        // processor configs
-	usage      map[string]int                    // processor_id -> refunds used today
-	overrides  map[string]model.ProcessorOverride // simulation overrides
-	resetDate  time.Time                          // date of last usage reset
+	processors map[string]model.Processor
+	usage      map[string]int
+	overrides  map[string]model.ProcessorOverride
+	resetDate  time.Time
 }
 
 // NewTracker creates a new quota tracker from processor configs.
@@ -31,7 +31,6 @@ func NewTracker(processors []model.Processor) *Tracker {
 	}
 }
 
-// resetIfNewDay lazily resets daily counters at midnight UTC.
 func (t *Tracker) resetIfNewDay(now time.Time) {
 	today := now.UTC().Truncate(24 * time.Hour)
 	if today.After(t.resetDate) {
@@ -41,13 +40,11 @@ func (t *Tracker) resetIfNewDay(now time.Time) {
 }
 
 // IsAvailable checks if a processor is available (not overridden as unavailable, not at capacity).
-// Returns (available, reason).
 func (t *Tracker) IsAvailable(processorID string, now time.Time) (bool, string) {
 	t.mu.Lock()
 	defer t.mu.Unlock()
 	t.resetIfNewDay(now)
 
-	// Check overrides
 	if override, ok := t.overrides[processorID]; ok {
 		if override.Available != nil && !*override.Available {
 			return false, "Processor marked as unavailable (simulated)"
@@ -57,7 +54,6 @@ func (t *Tracker) IsAvailable(processorID string, now time.Time) (bool, string) 
 		}
 	}
 
-	// Check quota
 	proc, ok := t.processors[processorID]
 	if !ok {
 		return false, fmt.Sprintf("Unknown processor: %s", processorID)
@@ -65,7 +61,6 @@ func (t *Tracker) IsAvailable(processorID string, now time.Time) (bool, string) 
 
 	if proc.DailyQuota > 0 {
 		used := t.usage[processorID]
-		// Also apply quota override if set
 		if override, ok := t.overrides[processorID]; ok && override.QuotaUsed != nil {
 			used = *override.QuotaUsed
 		}
@@ -122,7 +117,6 @@ func (t *Tracker) Status(now time.Time) []model.QuotaStatus {
 
 		available, reason := true, ""
 
-		// Check overrides
 		if override, ok := t.overrides[id]; ok {
 			if override.Available != nil && !*override.Available {
 				available = false
@@ -133,7 +127,6 @@ func (t *Tracker) Status(now time.Time) []model.QuotaStatus {
 			}
 		}
 
-		// Check quota (only if not already unavailable)
 		if available && proc.DailyQuota > 0 && used >= proc.DailyQuota {
 			available = false
 			reason = fmt.Sprintf("Daily quota exhausted: %d/%d", used, proc.DailyQuota)

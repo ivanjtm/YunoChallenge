@@ -17,7 +17,6 @@ type EligiblePath struct {
 func FindEligiblePaths(tx model.Transaction, ruleIndex *RuleIndex, now time.Time) []EligiblePath {
 	allowed := ruleIndex.AllowedRefundMethods(tx.PaymentMethod, tx.Country)
 	if len(allowed) == 0 {
-		// No rules found -- only account credit is available
 		return []EligiblePath{
 			{Method: model.RefundAccountCredit, Reason: "No compatibility rules found; only account credit available"},
 		}
@@ -31,23 +30,20 @@ func FindEligiblePaths(tx model.Transaction, ruleIndex *RuleIndex, now time.Time
 				paths = append(paths, EligiblePath{Method: ar.Method, Reason: reason})
 			}
 		default:
-			// Check settle requirement if specified
 			if ar.RequireSettled != nil {
 				if *ar.RequireSettled && !tx.Settled {
-					continue // requires settled but isn't
+					continue
 				}
 				if !*ar.RequireSettled && tx.Settled {
-					continue // requires unsettled but is settled
+					continue
 				}
 			}
-			// Check time window
 			if ok, reason := IsWithinTimeWindow(tx, ar, now); ok {
 				paths = append(paths, EligiblePath{Method: ar.Method, Reason: reason})
 			}
 		}
 	}
 
-	// If no paths found at all, account credit is always available as last resort
 	if len(paths) == 0 {
 		paths = append(paths, EligiblePath{
 			Method: model.RefundAccountCredit,
@@ -66,7 +62,6 @@ func TimeSensitiveWindows(tx model.Transaction, ruleIndex *RuleIndex, now time.T
 
 	for _, ar := range allowed {
 		if ar.Method == model.RefundReversal {
-			// Check if reversal window is closing (within last 6 hours of 24h)
 			hoursSince := now.Sub(tx.Timestamp).Hours()
 			if !tx.Settled && hoursSince >= 18 && hoursSince < 24 {
 				hoursLeft := 24 - hoursSince
@@ -81,7 +76,7 @@ func TimeSensitiveWindows(tx model.Transaction, ruleIndex *RuleIndex, now time.T
 			continue
 		}
 		if ar.MaxAgeDays == 0 {
-			continue // no time limit
+			continue
 		}
 		remaining := DaysUntilExpiry(tx, ar, now)
 		if remaining >= 0 && remaining <= thresholdDays {
@@ -98,7 +93,6 @@ func TimeSensitiveWindows(tx model.Transaction, ruleIndex *RuleIndex, now time.T
 	return flags
 }
 
-// windowTypeName generates a human-readable window type name.
 func windowTypeName(method model.PaymentMethod, ar model.AllowedRefund) string {
 	return fmt.Sprintf("%s_%s_%dD", method, ar.Method, ar.MaxAgeDays)
 }
