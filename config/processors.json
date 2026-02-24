@@ -1,0 +1,410 @@
+[
+  {
+    "id": "paybr",
+    "name": "PayBR",
+    "supported_countries": ["BR"],
+    "supported_currencies": ["BRL"],
+    "refund_fees": [
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD", "PIX"],
+        "currency": "BRL",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["PIX"],
+        "currency": "BRL",
+        "base_fee": 0.50,
+        "percent_fee": 0.50,
+        "min_fee": 0.75,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 1.50,
+        "percent_fee": 2.50,
+        "min_fee": 2.00,
+        "max_fee": 150.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["PIX", "BOLETO", "CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 1.00,
+        "percent_fee": 1.50,
+        "min_fee": 1.50,
+        "max_fee": 100.00
+      }
+    ],
+    "daily_quota": 1000,
+    "processing_days": {
+      "REVERSAL": 0,
+      "SAME_METHOD": 1,
+      "BANK_TRANSFER": 2
+    }
+  },
+  {
+    "id": "mexpay",
+    "name": "MexPay",
+    "supported_countries": ["MX"],
+    "supported_currencies": ["MXN"],
+    "refund_fees": [
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD", "SPEI"],
+        "currency": "MXN",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["SPEI"],
+        "currency": "MXN",
+        "base_fee": 5.00,
+        "percent_fee": 0.80,
+        "min_fee": 8.00,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 15.00,
+        "percent_fee": 2.00,
+        "min_fee": 20.00,
+        "max_fee": 2500.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["SPEI", "OXXO", "CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 10.00,
+        "percent_fee": 1.20,
+        "min_fee": 15.00,
+        "max_fee": 1800.00
+      }
+    ],
+    "daily_quota": 800,
+    "processing_days": {
+      "REVERSAL": 0,
+      "SAME_METHOD": 1,
+      "BANK_TRANSFER": 2
+    }
+  },
+  {
+    "id": "colpay",
+    "name": "ColPay",
+    "supported_countries": ["CO"],
+    "supported_currencies": ["COP"],
+    "refund_fees": [
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD", "PSE"],
+        "currency": "COP",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["PSE"],
+        "currency": "COP",
+        "base_fee": 1500.00,
+        "percent_fee": 0.60,
+        "min_fee": 2000.00,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "COP",
+        "base_fee": 3500.00,
+        "percent_fee": 2.20,
+        "min_fee": 5000.00,
+        "max_fee": 350000.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["PSE", "EFECTY", "CREDIT_CARD"],
+        "currency": "COP",
+        "base_fee": 2500.00,
+        "percent_fee": 1.80,
+        "min_fee": 4000.00,
+        "max_fee": 280000.00
+      }
+    ],
+    "daily_quota": 600,
+    "processing_days": {
+      "REVERSAL": 0,
+      "SAME_METHOD": 1,
+      "BANK_TRANSFER": 3
+    }
+  },
+  {
+    "id": "globalpay",
+    "name": "GlobalPay",
+    "supported_countries": ["BR", "MX", "CO"],
+    "supported_currencies": ["BRL", "MXN", "COP"],
+    "refund_fees": [
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "COP",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 2.00,
+        "percent_fee": 2.00,
+        "min_fee": 3.00,
+        "max_fee": 200.00
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 20.00,
+        "percent_fee": 2.00,
+        "min_fee": 30.00,
+        "max_fee": 3500.00
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "COP",
+        "base_fee": 5000.00,
+        "percent_fee": 2.00,
+        "min_fee": 7500.00,
+        "max_fee": 500000.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["PIX", "BOLETO", "CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 2.00,
+        "percent_fee": 2.00,
+        "min_fee": 3.00,
+        "max_fee": 200.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["SPEI", "OXXO", "CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 20.00,
+        "percent_fee": 2.00,
+        "min_fee": 30.00,
+        "max_fee": 3500.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["PSE", "EFECTY", "CREDIT_CARD"],
+        "currency": "COP",
+        "base_fee": 5000.00,
+        "percent_fee": 2.00,
+        "min_fee": 7500.00,
+        "max_fee": 500000.00
+      }
+    ],
+    "daily_quota": 2000,
+    "processing_days": {
+      "REVERSAL": 0,
+      "SAME_METHOD": 2,
+      "BANK_TRANSFER": 3
+    }
+  },
+  {
+    "id": "quickrefund",
+    "name": "QuickRefund",
+    "supported_countries": ["BR", "MX"],
+    "supported_currencies": ["BRL", "MXN"],
+    "refund_fees": [
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["PIX", "CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 3.00,
+        "percent_fee": 3.00,
+        "min_fee": 4.50,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["SPEI", "CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 30.00,
+        "percent_fee": 3.00,
+        "min_fee": 45.00,
+        "max_fee": 0
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["PIX", "BOLETO", "CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 2.50,
+        "percent_fee": 2.50,
+        "min_fee": 4.00,
+        "max_fee": 0
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["SPEI", "OXXO", "CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 25.00,
+        "percent_fee": 2.50,
+        "min_fee": 40.00,
+        "max_fee": 0
+      }
+    ],
+    "daily_quota": 300,
+    "processing_days": {
+      "REVERSAL": 0,
+      "SAME_METHOD": 0,
+      "BANK_TRANSFER": 1
+    }
+  },
+  {
+    "id": "valueproc",
+    "name": "ValueProc",
+    "supported_countries": ["BR", "MX", "CO"],
+    "supported_currencies": ["BRL", "MXN", "COP"],
+    "refund_fees": [
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "REVERSAL",
+        "payment_methods": ["CREDIT_CARD"],
+        "currency": "COP",
+        "base_fee": 0.00,
+        "percent_fee": 0.00,
+        "min_fee": 0.00,
+        "max_fee": 0
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["PIX", "CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 0.50,
+        "percent_fee": 0.80,
+        "min_fee": 1.00,
+        "max_fee": 80.00
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["SPEI", "CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 5.00,
+        "percent_fee": 0.80,
+        "min_fee": 10.00,
+        "max_fee": 1400.00
+      },
+      {
+        "method": "SAME_METHOD",
+        "payment_methods": ["PSE", "CREDIT_CARD"],
+        "currency": "COP",
+        "base_fee": 1500.00,
+        "percent_fee": 0.80,
+        "min_fee": 2500.00,
+        "max_fee": 200000.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["PIX", "BOLETO", "CREDIT_CARD"],
+        "currency": "BRL",
+        "base_fee": 0.75,
+        "percent_fee": 1.00,
+        "min_fee": 1.50,
+        "max_fee": 100.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["SPEI", "OXXO", "CREDIT_CARD"],
+        "currency": "MXN",
+        "base_fee": 8.00,
+        "percent_fee": 1.00,
+        "min_fee": 12.00,
+        "max_fee": 1800.00
+      },
+      {
+        "method": "BANK_TRANSFER",
+        "payment_methods": ["PSE", "EFECTY", "CREDIT_CARD"],
+        "currency": "COP",
+        "base_fee": 2000.00,
+        "percent_fee": 1.00,
+        "min_fee": 3500.00,
+        "max_fee": 250000.00
+      }
+    ],
+    "daily_quota": 200,
+    "processing_days": {
+      "REVERSAL": 0,
+      "SAME_METHOD": 3,
+      "BANK_TRANSFER": 5
+    }
+  }
+]

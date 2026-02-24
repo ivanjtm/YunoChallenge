@@ -1,0 +1,80 @@
+[
+  {
+    "original_method": "CREDIT_CARD",
+    "country": "BR",
+    "allowed_refunds": [
+      { "method": "REVERSAL", "max_age_days": 0, "require_settled": false },
+      { "method": "SAME_METHOD", "max_age_days": 180, "require_settled": null },
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null }
+    ]
+  },
+  {
+    "original_method": "PIX",
+    "country": "BR",
+    "allowed_refunds": [
+      { "method": "REVERSAL", "max_age_days": 0, "require_settled": false },
+      { "method": "SAME_METHOD", "max_age_days": 90, "require_settled": null },
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null }
+    ]
+  },
+  {
+    "original_method": "BOLETO",
+    "country": "BR",
+    "allowed_refunds": [
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null },
+      { "method": "ACCOUNT_CREDIT", "max_age_days": 0, "require_settled": null }
+    ]
+  },
+  {
+    "original_method": "CREDIT_CARD",
+    "country": "MX",
+    "allowed_refunds": [
+      { "method": "REVERSAL", "max_age_days": 0, "require_settled": false },
+      { "method": "SAME_METHOD", "max_age_days": 180, "require_settled": null },
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null }
+    ]
+  },
+  {
+    "original_method": "OXXO",
+    "country": "MX",
+    "allowed_refunds": [
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null },
+      { "method": "ACCOUNT_CREDIT", "max_age_days": 0, "require_settled": null }
+    ]
+  },
+  {
+    "original_method": "SPEI",
+    "country": "MX",
+    "allowed_refunds": [
+      { "method": "REVERSAL", "max_age_days": 0, "require_settled": false },
+      { "method": "SAME_METHOD", "max_age_days": 0, "require_settled": null },
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null }
+    ]
+  },
+  {
+    "original_method": "CREDIT_CARD",
+    "country": "CO",
+    "allowed_refunds": [
+      { "method": "REVERSAL", "max_age_days": 0, "require_settled": false },
+      { "method": "SAME_METHOD", "max_age_days": 180, "require_settled": null },
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null }
+    ]
+  },
+  {
+    "original_method": "PSE",
+    "country": "CO",
+    "allowed_refunds": [
+      { "method": "REVERSAL", "max_age_days": 0, "require_settled": false },
+      { "method": "SAME_METHOD", "max_age_days": 60, "require_settled": null },
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null }
+    ]
+  },
+  {
+    "original_method": "EFECTY",
+    "country": "CO",
+    "allowed_refunds": [
+      { "method": "BANK_TRANSFER", "max_age_days": 0, "require_settled": null },
+      { "method": "ACCOUNT_CREDIT", "max_age_days": 0, "require_settled": null }
+    ]
+  }
+]
