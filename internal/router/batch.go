@@ -2,26 +2,75 @@ package router
 
 import (
 	"fmt"
+	"runtime"
+	"sync"
 	"time"
 
-	"github.com/velamarket/refund-router/internal/model"
-	"github.com/velamarket/refund-router/internal/rules"
+	"github.com/ivanjtm/YunoChallenge/internal/model"
+	"github.com/ivanjtm/YunoChallenge/internal/rules"
 )
 
-// AnalyzeBatch processes multiple refund requests and produces an optimization report.
+// indexedRoute pairs a routing result with its original index to preserve order
+// after parallel fan-out.
+type indexedRoute struct {
+	index int
+	tx    model.Transaction
+	route model.RefundRouteResult
+}
+
+// AnalyzeBatch processes multiple refund requests concurrently and produces an
+// optimization report. SelectRoute calls are fanned out across NumCPU workers;
+// accumulation happens single-threaded to avoid lock contention on maps.
 func (r *Router) AnalyzeBatch(txns []model.Transaction, now time.Time) model.BatchRefundResult {
+	n := len(txns)
 	result := model.BatchRefundResult{
-		TotalTransactions: len(txns),
-		Results:           make([]model.RefundRouteResult, 0, len(txns)),
+		TotalTransactions: n,
+		Results:           make([]model.RefundRouteResult, n),
 		ByProcessor:       make(map[string]model.ProcessorSummary),
 		ByPaymentMethod:   make(map[string]model.MethodSummary),
 		TimeSensitive:     make([]model.TimeSensitiveFlag, 0),
 		LimitedOptions:    make([]model.LimitedOptionFlag, 0),
 	}
 
-	for _, tx := range txns {
-		route := r.SelectRoute(tx, now)
-		result.Results = append(result.Results, route)
+	// Fan out routing across workers
+	workers := runtime.NumCPU()
+	if workers > n {
+		workers = n
+	}
+	if workers < 1 {
+		workers = 1
+	}
+
+	jobs := make(chan indexedRoute, n)
+	results := make(chan indexedRoute, n)
+
+	var wg sync.WaitGroup
+	for w := 0; w < workers; w++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for j := range jobs {
+				j.route = r.SelectRoute(j.tx, now)
+				results <- j
+			}
+		}()
+	}
+
+	for i, tx := range txns {
+		jobs <- indexedRoute{index: i, tx: tx}
+	}
+	close(jobs)
+
+	go func() {
+		wg.Wait()
+		close(results)
+	}()
+
+	// Accumulate single-threaded — no locks needed on maps
+	for ir := range results {
+		result.Results[ir.index] = ir.route
+		route := ir.route
+		tx := ir.tx
 
 		result.TotalNaiveCost += route.NaiveCost
 		result.TotalSmartCost += route.Selected.EstimatedCost
@@ -47,7 +96,6 @@ func (r *Router) AnalyzeBatch(txns []model.Transaction, now time.Time) model.Bat
 		tsFlags := rules.TimeSensitiveWindows(tx, r.RuleIndex, now, 15)
 		result.TimeSensitive = append(result.TimeSensitive, tsFlags...)
 
-		// Cash-based methods (OXXO, Boleto, Efecty) cannot be refunded via same method
 		switch tx.PaymentMethod {
 		case model.MethodOXXO, model.MethodBoleto, model.MethodEfecty:
 			totalOptions := 1 + len(route.Alternatives)
