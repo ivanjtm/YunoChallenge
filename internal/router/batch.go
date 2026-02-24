@@ -12,21 +12,21 @@ import (
 func (r *Router) AnalyzeBatch(txns []model.Transaction, now time.Time) model.BatchRefundResult {
 	result := model.BatchRefundResult{
 		TotalTransactions: len(txns),
+		Results:           make([]model.RefundRouteResult, 0, len(txns)),
 		ByProcessor:       make(map[string]model.ProcessorSummary),
 		ByPaymentMethod:   make(map[string]model.MethodSummary),
+		TimeSensitive:     make([]model.TimeSensitiveFlag, 0),
+		LimitedOptions:    make([]model.LimitedOptionFlag, 0),
 	}
 
 	for _, tx := range txns {
-		// Route each transaction
 		route := r.SelectRoute(tx, now)
 		result.Results = append(result.Results, route)
 
-		// Accumulate totals
 		result.TotalNaiveCost += route.NaiveCost
 		result.TotalSmartCost += route.Selected.EstimatedCost
 		result.TotalSavings += route.Savings
 
-		// Group by original processor
 		ps := result.ByProcessor[tx.ProcessorID]
 		ps.ProcessorID = tx.ProcessorID
 		ps.NaiveCost += route.NaiveCost
@@ -35,7 +35,6 @@ func (r *Router) AnalyzeBatch(txns []model.Transaction, now time.Time) model.Bat
 		ps.TransactionCount++
 		result.ByProcessor[tx.ProcessorID] = ps
 
-		// Group by original payment method
 		methodKey := string(tx.PaymentMethod)
 		ms := result.ByPaymentMethod[methodKey]
 		ms.Method = methodKey
@@ -45,32 +44,26 @@ func (r *Router) AnalyzeBatch(txns []model.Transaction, now time.Time) model.Bat
 		ms.TransactionCount++
 		result.ByPaymentMethod[methodKey] = ms
 
-		// Check for time-sensitive windows (threshold: 15 days)
 		tsFlags := rules.TimeSensitiveWindows(tx, r.RuleIndex, now, 15)
 		result.TimeSensitive = append(result.TimeSensitive, tsFlags...)
 
-		// Check for limited options (fewer than 3 candidates total)
-		if len(route.Alternatives) < 2 { // selected + fewer than 2 alternatives = limited
+		// Cash-based methods (OXXO, Boleto, Efecty) cannot be refunded via same method
+		switch tx.PaymentMethod {
+		case model.MethodOXXO, model.MethodBoleto, model.MethodEfecty:
 			totalOptions := 1 + len(route.Alternatives)
-			// Only flag methods that inherently have limited options
-			switch tx.PaymentMethod {
-			case model.MethodOXXO, model.MethodBoleto, model.MethodEfecty:
-				result.LimitedOptions = append(result.LimitedOptions, model.LimitedOptionFlag{
-					TransactionID:    tx.ID,
-					OriginalMethod:   string(tx.PaymentMethod),
-					AvailableOptions: totalOptions,
-					Message:          fmt.Sprintf("%s cannot be refunded via %s. Only %d routing option(s) available.", tx.PaymentMethod, tx.PaymentMethod, totalOptions),
-				})
-			}
+			result.LimitedOptions = append(result.LimitedOptions, model.LimitedOptionFlag{
+				TransactionID:    tx.ID,
+				OriginalMethod:   string(tx.PaymentMethod),
+				AvailableOptions: totalOptions,
+				Message:          fmt.Sprintf("%s cannot be refunded via %s; requires alternative method. %d routing option(s) available.", tx.PaymentMethod, tx.PaymentMethod, totalOptions),
+			})
 		}
 	}
 
-	// Calculate savings percentage
 	if result.TotalNaiveCost > 0 {
 		result.SavingsPercent = (result.TotalSavings / result.TotalNaiveCost) * 100
 	}
 
-	// Round totals
 	result.TotalNaiveCost = roundTo2(result.TotalNaiveCost)
 	result.TotalSmartCost = roundTo2(result.TotalSmartCost)
 	result.TotalSavings = roundTo2(result.TotalSavings)

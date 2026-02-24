@@ -26,14 +26,11 @@ func NewRouter(processors []model.Processor, compatRules []model.CompatibilityRu
 
 // SelectRoute finds the optimal refund route for a transaction.
 func (r *Router) SelectRoute(tx model.Transaction, now time.Time) model.RefundRouteResult {
-	// Step 1: Find eligible refund methods
 	eligiblePaths := rules.FindEligiblePaths(tx, r.RuleIndex, now)
 
-	// Step 2+3: For each eligible method, find processors and calculate costs
 	var candidates []model.RefundCandidate
 
 	for _, path := range eligiblePaths {
-		// Account credit is special — no processor involved, zero cost
 		if path.Method == model.RefundAccountCredit {
 			candidates = append(candidates, model.RefundCandidate{
 				ProcessorID:    "internal",
@@ -46,29 +43,23 @@ func (r *Router) SelectRoute(tx model.Transaction, now time.Time) model.RefundRo
 			continue
 		}
 
-		// For each processor, check if it can handle this refund method
 		for _, proc := range r.Processors {
-			// Must support the transaction's country and currency
 			if !cost.SupportsCountryAndCurrency(proc, tx.Country, tx.Currency) {
 				continue
 			}
 
-			// Find matching fee entry
 			fee := cost.FindMatchingFee(proc, path.Method, tx.PaymentMethod, tx.Currency)
 			if fee == nil {
 				continue
 			}
 
-			// Calculate cost
 			refundCost := cost.Calculate(tx.Amount, *fee)
 
-			// Get processing time
 			days := 0
 			if d, ok := proc.ProcessingDays[path.Method]; ok {
 				days = d
 			}
 
-			// Build reasoning string
 			reasoning := buildReasoning(tx, proc, path, *fee, refundCost, days)
 
 			candidates = append(candidates, model.RefundCandidate{
@@ -82,24 +73,26 @@ func (r *Router) SelectRoute(tx model.Transaction, now time.Time) model.RefundRo
 		}
 	}
 
-	// Step 5: Rank candidates
 	sort.Slice(candidates, func(i, j int) bool {
-		// Primary: cost ascending
+		// Account credit is always ranked last: it's free but worse for customer
+		// experience since money stays locked in the marketplace balance.
+		iIsCredit := candidates[i].RefundMethod == model.RefundAccountCredit
+		jIsCredit := candidates[j].RefundMethod == model.RefundAccountCredit
+		if iIsCredit != jIsCredit {
+			return !iIsCredit
+		}
 		if candidates[i].EstimatedCost != candidates[j].EstimatedCost {
 			return candidates[i].EstimatedCost < candidates[j].EstimatedCost
 		}
-		// Secondary: processing time ascending
 		if candidates[i].ProcessingDays != candidates[j].ProcessingDays {
 			return candidates[i].ProcessingDays < candidates[j].ProcessingDays
 		}
-		// Tertiary: prefer original processor for simpler reconciliation
 		if candidates[i].ProcessorID == tx.ProcessorID && candidates[j].ProcessorID != tx.ProcessorID {
 			return true
 		}
 		return false
 	})
 
-	// Handle no candidates (shouldn't happen due to account credit fallback)
 	if len(candidates) == 0 {
 		candidates = []model.RefundCandidate{{
 			ProcessorID:    "internal",
@@ -111,10 +104,8 @@ func (r *Router) SelectRoute(tx model.Transaction, now time.Time) model.RefundRo
 		}}
 	}
 
-	// Step 6: Calculate naive cost
 	naiveCost := cost.CalculateNaive(tx, r.Processors)
 
-	// Step 7: Assemble result
 	selected := candidates[0]
 	var alternatives []model.RefundCandidate
 	if len(candidates) > 1 {
@@ -130,7 +121,6 @@ func (r *Router) SelectRoute(tx model.Transaction, now time.Time) model.RefundRo
 	}
 }
 
-// buildReasoning creates a human-readable explanation for a routing choice.
 func buildReasoning(tx model.Transaction, proc model.Processor, path rules.EligiblePath, fee model.RefundMethodFee, refundCost float64, days int) string {
 	methodDesc := string(path.Method)
 	switch path.Method {
